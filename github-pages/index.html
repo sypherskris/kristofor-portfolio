@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&amp;family=Geist:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<script src="image-slot.js"></script>
+<script src="video-slot.js"></script>
+<script src="tile-reorder.js"></script>
+<style>
+/* home */
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#FFFFFF;color:#0B0B0C;font-family:'Geist',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#0B0B0C;color:#fff;}
+  a{color:inherit;}
+
+/* kraken */
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#FFFFFF;color:#0B0B0C;font-family:'Geist',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#6C4DF6;color:#fff;}
+  a{color:inherit;}
+  /* transparent empty-tile background (drop the default grey fill) */
+  image-slot::part(frame), video-slot::part(frame){background:transparent;}
+
+/* flipster */
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#FFFFFF;color:#0B0B0C;font-family:'Geist',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#2563EB;color:#fff;}
+  a{color:inherit;}
+  .yt-expand{position:absolute;top:8px;right:8px;z-index:3;display:flex;align-items:center;justify-content:center;width:30px;height:30px;border:none;border-radius:8px;background:rgba(0,0,0,0.55);color:#fff;cursor:pointer;opacity:0;transition:opacity .15s ease;backdrop-filter:blur(4px);}
+  .yt-embed:hover .yt-expand{opacity:1;}
+
+/* boh */
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#FFFFFF;color:#0B0B0C;font-family:'Geist',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#0E6BA8;color:#fff;}
+  a{color:inherit;}
+
+/* dataxu */
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#FFFFFF;color:#0B0B0C;font-family:'Geist',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#EE6A1E;color:#fff;}
+  a{color:inherit;}
+
+/* freelance */
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#FFFFFF;color:#0B0B0C;font-family:'Geist',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#0B0B0C;color:#fff;}
+  a{color:inherit;}
+  /* center the tall DN-Pro website screenshot tile in the grid */
+  div:has(> image-slot#ksfreelanceextratilesv1-5-mr1l2o2bkl){grid-column:3 / span 2 !important;}
+
+/* personal */
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#FFFFFF;color:#0B0B0C;font-family:'Geist',-apple-system,system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  ::selection{background:#0B0B0C;color:#fff;}
+  a{color:inherit;}
+  /* Illustration section: transparent empty-tile background (no grey fill) */
+  #pr-illus-grid image-slot::part(frame){background:transparent;}
+
+</style>
+</helmet>
+
+<sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+<main data-screen-label="Home" style="width:100%;overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:saturate(1.5) blur(14px);-webkit-backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid #ECECE8;">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
+        <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:26px;">
+        <a href="#work" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
+        <a href="#about" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
+        <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#0B0B0C;color:#fff;padding:9px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;" style-hover="background:#2A2A2A;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#22C55E;display:inline-block;"></span><span>Let’s talk</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" style="max-width:1180px;margin:0 auto;padding:72px 24px 0;">
+    <div style="display:grid;grid-template-columns:1.55fr 1fr;gap:40px;align-items:end;">
+      <div>
+        <div style="display:inline-flex;align-items:center;gap:9px;background:#F0FBF3;border:1px solid #D6F0DD;color:#1C7A3E;padding:7px 14px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.04em;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#22C55E;display:inline-block;"></span><span>Available for new roles</span>
+        </div>
+        
+        <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(40px,6.2vw,82px);line-height:0.95;letter-spacing:-0.04em;margin:24px 0 0;color:#0B0B0C;max-width:15ch;">Brand, illustration<br>&amp; motion that feels human.</h1><p style="font-family:'Geist';font-size:clamp(16px,1.5vw,19px);line-height:1.55;color:#4A4A50;max-width:52ch;margin:28px 0 0;text-wrap:pretty;">I’m Kristofor Syphers, a multidisciplinary designer with 10+ years across crypto, banking, and consumer brands. Currently Visual Designer at Flipster.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:32px;">
+          <a href="#work" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:#0B0B0C;color:#fff;padding:14px 24px;border-radius:999px;font-family:'Archivo';font-weight:600;font-size:15px;" style-hover="background:#2A2A2A;"><span>View work</span> <span>↓</span></a>
+          <a href="#contact" style="display:inline-flex;align-items:center;gap:9px;text-decoration:none;background:#fff;color:#0B0B0C;border:1px solid #D9D9D4;padding:14px 24px;border-radius:999px;font-family:'Archivo';font-weight:600;font-size:15px;" style-hover="border-color:#0B0B0C;">Get in touch</a>
+        </div>
+      </div>
+      <image-slot id="home-portrait" src="assets/images/home-portrait.webp" shape="rounded" radius="24" placeholder="Drop a portrait or a signature piece" style="width:100%;height:min(46vw,440px);display:block;"></image-slot>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work" style="max-width:1180px;margin:0 auto;padding:80px 24px 0;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:26px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0B0B0C;">Selected work</div>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(30px,4vw,50px);line-height:1.0;letter-spacing:-0.032em;margin:12px 0 0;color:#0B0B0C;">Multiple brands, one through-line.</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:15px;line-height:1.5;color:#74747A;max-width:32ch;margin:0;">Click into a project to see the full case study.</p>
+    </div>
+
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:230px;gap:16px;grid-auto-flow:dense;">
+
+      <!-- FLIPSTER (feature) -->
+      <div style="position:relative;border-radius:22px;overflow:hidden;background:#EFEFEC;grid-column:span 4;grid-row:span 2;transition:transform .18s ease,box-shadow .18s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,0.14);">
+        <image-slot id="home-flipster" src="assets/images/home-flipster.webp" shape="rect" placeholder="Flipster: visual &amp; motion" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+        <a href="#flipster" style="position:absolute;inset:0;text-decoration:none;pointer-events:none;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;background:linear-gradient(to top,rgba(10,10,12,0.82) 0%,rgba(10,10,12,0.15) 45%,rgba(10,10,12,0) 70%);">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;pointer-events:auto;">
+            <div>
+              <div style="font-family:'Archivo';font-weight:800;font-size:30px;letter-spacing:-0.02em;color:#fff;">Flipster</div>
+              <div style="font-size:12px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:6px;">2024-CURRENT · VISUAL &amp; BRAND</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+      <!-- KRAKEN -->
+      <div style="position:relative;border-radius:22px;overflow:hidden;background:#EFEFEC;grid-column:span 2;grid-row:span 2;transition:transform .18s ease,box-shadow .18s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,0.12);">
+        <image-slot id="home-kraken" src="assets/images/home-kraken.webp" shape="rect" placeholder="Kraken: brand &amp; illustration" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+        <a href="#kraken" style="position:absolute;inset:0;text-decoration:none;pointer-events:none;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;background:linear-gradient(to top,rgba(10,10,12,0.82) 0%,rgba(10,10,12,0.12) 50%,rgba(10,10,12,0) 72%);">
+          <div style="font-family:'Archivo';font-weight:800;font-size:24px;letter-spacing:-0.02em;color:#fff;pointer-events:auto;">Kraken</div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:5px;">2021–23 · Brand &amp; Illustration</div>
+        </a>
+      </div>
+
+      <!-- FREELANCE -->
+      <div style="position:relative;border-radius:22px;overflow:hidden;background:#EFEFEC;grid-column:span 2;grid-row:span 2;transition:transform .18s ease,box-shadow .18s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,0.12);">
+        <image-slot id="home-freelance" src="assets/images/home-freelance.webp" shape="rect" placeholder="Freelance: brand &amp; product" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+        <a href="#freelance" style="position:absolute;inset:0;text-decoration:none;pointer-events:none;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;background:linear-gradient(to top,rgba(10,10,12,0.82) 0%,rgba(10,10,12,0.12) 50%,rgba(10,10,12,0) 72%);">
+          <div style="font-family:'Archivo';font-weight:800;font-size:24px;letter-spacing:-0.02em;color:#fff;pointer-events:auto;">Freelance</div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:5px;">2024 · Brand &amp; Product</div>
+        </a>
+      </div>
+
+      <!-- BANK OF HAWAII -->
+      <div style="position:relative;border-radius:22px;overflow:hidden;background:#EFEFEC;grid-column:span 2;grid-row:span 2;transition:transform .18s ease,box-shadow .18s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,0.12);">
+        <image-slot id="home-boh" src="assets/images/home-boh.webp" shape="rect" placeholder="Bank of Hawaii: brand &amp; campaign" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+        <a href="#boh" style="position:absolute;inset:0;text-decoration:none;pointer-events:none;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;background:linear-gradient(to top,rgba(10,10,12,0.82) 0%,rgba(10,10,12,0.12) 50%,rgba(10,10,12,0) 72%);">
+          <div style="font-family:'Archivo';font-weight:800;font-size:24px;letter-spacing:-0.02em;color:#fff;pointer-events:auto;">Bank of Hawaii</div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:5px;">2019–21 · Brand &amp; Campaign</div>
+        </a>
+      </div>
+
+      <!-- DATAXU -->
+      <div style="position:relative;border-radius:22px;overflow:hidden;background:#EFEFEC;grid-column:span 2;grid-row:span 2;transition:transform .18s ease,box-shadow .18s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,0.12);">
+        <image-slot id="home-dataxu" src="assets/images/home-dataxu.webp" shape="rect" placeholder="Dataxu: graphic &amp; infographic" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+        <a href="#dataxu" style="position:absolute;inset:0;text-decoration:none;pointer-events:none;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;background:linear-gradient(to top,rgba(10,10,12,0.82) 0%,rgba(10,10,12,0.12) 50%,rgba(10,10,12,0) 72%);">
+          <div style="font-family:'Archivo';font-weight:800;font-size:24px;letter-spacing:-0.02em;color:#fff;pointer-events:auto;">Dataxu</div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:5px;">2019 · Graphic &amp; Infographic</div>
+        </a>
+      </div>
+
+      <!-- PERSONAL (wide banner) -->
+      <div style="position:relative;border-radius:22px;overflow:hidden;background:#1A1A1E;grid-column:span 6;grid-row:span 1;transition:transform .18s ease,box-shadow .18s ease;" style-hover="transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,0.18);">
+        <image-slot id="home-personal" src="assets/images/home-personal.webp" shape="rect" placeholder="Personal: experiments, film &amp; type" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+        <a href="#personal" style="position:absolute;inset:0;text-decoration:none;pointer-events:none;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:26px;background:linear-gradient(to right,rgba(10,10,12,0.8) 0%,rgba(10,10,12,0.2) 55%,rgba(10,10,12,0) 100%);">
+          <div>
+            <div style="font-family:'Archivo';font-weight:800;font-size:26px;letter-spacing:-0.02em;color:#fff;pointer-events:auto;">Personal</div>
+            <div style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:5px;">2024-CURRENT · EXPERIMENTS · FILM · TYPE</div>
+          </div>
+          <span style="display:none;"></span>
+        </a>
+      </div>
+
+      <sc-for list="{{ extraTiles }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;border-radius:22px;overflow:hidden;background:#EFEFEC;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rect" placeholder="New project — drop an image" style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ addTile }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:22px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" style="max-width:1180px;margin:0 auto;padding:88px 24px 0;">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:stretch;">
+      <div style="background:#F5F5F2;border:1px solid #ECECE8;border-radius:24px;padding:clamp(28px,4vw,44px);">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0B0B0C;">About</div>
+        <p style="font-family:'Archivo';font-weight:600;font-size:clamp(20px,2.4vw,28px);line-height:1.32;letter-spacing:-0.02em;color:#0B0B0C;margin:18px 0 0;text-wrap:pretty;">I’m driven by design’s capacity to shape experiences, communicate ideas, and improve the lives of the people who interact with them.</p>
+        <p style="font-family:'Geist';font-size:16px;line-height:1.6;color:#4A4A50;margin:20px 0 0;max-width:54ch;text-wrap:pretty;">Grounded in observation, experimentation, and simplicity, my work spans brand identity, illustration, and motion, most recently across crypto and fintech. BFA, Massachusetts College of Art &amp; Design.</p>
+      </div>
+      <div style="background:#0B0B0C;color:#fff;border-radius:24px;padding:clamp(28px,4vw,40px);display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#B8B8BE;">Capabilities</div>
+        <div style="display:flex;flex-wrap:wrap;gap:9px;margin-top:auto;padding-top:26px;">
+          <span style="border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:500;color:#EDEDED;">Branding &amp; Identity</span>
+          <span style="border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:500;color:#EDEDED;">Illustration</span>
+          <span style="border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:500;color:#EDEDED;">Motion Graphics</span>
+          <span style="border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:500;color:#EDEDED;">Art Direction</span>
+          <span style="border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:500;color:#EDEDED;">Typography</span>
+          <span style="border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:500;color:#EDEDED;">Logo Design</span>
+          <span style="border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:500;color:#EDEDED;">UI / UX</span>
+          <span style="border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:8px 14px;font-size:13px;font-weight:500;color:#EDEDED;">Photo / Video Editing</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLIENTS -->
+    <div style="margin-top:40px;border-top:1px solid #ECECE8;padding-top:28px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;margin-bottom:18px;">Trusted by teams at</div>
+      <div style="display:flex;flex-wrap:wrap;gap:clamp(20px,4vw,52px);align-items:center;">
+        <span style="font-family:'Archivo';font-weight:800;font-size:clamp(18px,2vw,26px);letter-spacing:-0.02em;color:#0B0B0C;">Flipster</span>
+        <span style="font-family:'Archivo';font-weight:800;font-size:clamp(18px,2vw,26px);letter-spacing:-0.02em;color:#0B0B0C;">Kraken</span>
+        <span style="font-family:'Archivo';font-weight:800;font-size:clamp(18px,2vw,26px);letter-spacing:-0.02em;color:#0B0B0C;">Bank of Hawaii</span>
+        <span style="font-family:'Archivo';font-weight:800;font-size:clamp(18px,2vw,26px);letter-spacing:-0.02em;color:#0B0B0C;">Dataxu</span>
+        <span style="font-family:'Archivo';font-weight:800;font-size:clamp(18px,2vw,26px);letter-spacing:-0.02em;color:#0B0B0C;">Whole Foods</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+  <section id="contact" style="max-width:1180px;margin:88px auto 0;padding:0 24px;">
+    <div style="background:#0B0B0C;color:#fff;border-radius:28px;padding:clamp(40px,6vw,80px);position:relative;overflow:hidden;">
+      <image-slot id="contact-accent" src="assets/images/contact-accent.webp" fit="cover" free="" shape="rect" placeholder="Drop a PNG. Double-click it to move, scale (corner-drag / scroll), and crop against the tile edges." style="position:absolute;inset:0;width:100%;height:100%;"></image-slot>
+      <div style="position:relative;pointer-events:none;">
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(32px,5vw,62px);line-height:1.0;letter-spacing:-0.035em;margin:0;max-width:16ch;pointer-events:auto;">Let’s make something worth sharing.</h2>
+        <p style="font-family:'Geist';font-size:clamp(16px,1.6vw,19px);line-height:1.5;color:rgba(255,255,255,0.78);margin:22px 0 0;max-width:48ch;pointer-events:auto;">Open to full-time roles and select freelance. Tell me what you’re building.</p>
+        <a href="mailto:xyzsyphers@gmail.com" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:#fff;color:#0B0B0C;padding:15px 26px;border-radius:999px;font-family:'Archivo';font-weight:700;font-size:16px;margin-top:32px;pointer-events:auto;" style-hover="background:#EDEDED;"><span>xyzsyphers@gmail.com</span> <span>→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="max-width:1180px;margin:0 auto;padding:48px 24px 56px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+      <div>
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:30px;width:auto;display:block;">
+        <div style="font-family:'Geist';font-size:14px;color:#74747A;margin-top:14px;">Graphic design · Illustration · Motion · Brand</div>
+      </div>
+    </div>
+    <div style="margin-top:36px;font-size:12px;color:#B4B4B8;">© 2026 Kristofor Syphers.</div>
+  </footer>
+
+  <sc-if value="{{ showEdit }}" hint-placeholder-val="{{ false }}">
+  <button onClick="{{ toggleEdit }}" style="position:fixed;right:20px;bottom:20px;z-index:100;display:inline-flex;align-items:center;gap:9px;background:#0B0B0C;color:#fff;border:none;padding:12px 18px;border-radius:999px;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.18);" style-hover="background:#2A2A2A;"><span style="width:7px;height:7px;border-radius:50%;background:#22C55E;display:inline-block;"></span>{{ editLabel }}</button>
+  </sc-if>
+
+</main>
+</sc-if>
+
+<sc-if value="{{ isKraken }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Kraken Case Study" style="width:100%;overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:saturate(1.5) blur(14px);-webkit-backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid #ECECE8;">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#home" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
+        <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:26px;">
+        <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
+        <a href="Home.dc.html#about" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
+        <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#0B0B0C;color:#fff;padding:9px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;" style-hover="background:#6C4DF6;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#6CF69B;display:inline-block;"></span><span>Let’s talk</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CASE HEADER -->
+  <section id="top" style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <span style="background:#ECE8FF;color:#5B3FE0;padding:6px 13px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Case Study</span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9A9AA0;">Brand &amp; Illustration · 2021–23</span>
+    </div>
+    <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(42px,6.4vw,80px);line-height:0.96;letter-spacing:-0.038em;margin:26px 0 0;max-width:17ch;color:#0B0B0C;">Evolving Kraken’s brand, one illustration at a time.</h1>
+    <p style="font-family:'Geist';font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:#4A4A50;max-width:60ch;margin:28px 0 0;text-wrap:pretty;">A two-year run as in-house Brand Designer &amp; Illustrator at one of the world’s largest crypto exchanges, building a warm, optimistic visual language that made an intimidating category feel human.</p>
+
+    <!-- META STRIP -->
+    <div style="margin-top:40px;background:#F5F5F2;border:1px solid #ECECE8;border-radius:20px;padding:22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Role</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Brand Designer &amp; Illustrator</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Client</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Kraken Digital Asset Exchange</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Timeline</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">2021–2023 · In-house</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Scope</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Illustration · Direction · Brand</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO VISUAL -->
+  <section style="max-width:1180px;margin:0 auto;padding:20px 24px 0;">
+    <image-slot id="kraken-hero" src="assets/images/kraken-hero.webp" shape="rounded" radius="28" placeholder="Drop the Kraken hero illustration: the sun / hand piece works great" style="width:100%;height:min(56vw,560px);display:block;"></image-slot>
+  </section>
+
+  <!-- OVERVIEW BENTO -->
+  <section id="work" style="max-width:1180px;margin:0 auto;padding:56px 24px 0;">
+    <div style="display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:16px;align-items:stretch;">
+      <div style="background:#F5F5F2;border:1px solid #ECECE8;border-radius:24px;padding:32px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#6C4DF6;">Overview</div>
+        <p style="font-family:'Geist';font-size:17px;line-height:1.6;color:#2B2B30;margin:16px 0 0;text-wrap:pretty;">As Brand Designer &amp; Illustrator at Kraken, I helped evolve the brand’s visual identity through a period of rapid growth. I concepted, illustrated, and produced work across education, social, product, and live events, translating dense crypto concepts into approachable visuals that met new users where they were.</p>
+      </div>
+      <div style="background:#0B0B0C;color:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9A8CFF;">What I did</div>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:11px;padding-top:24px;">
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Concept &amp; art direction</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Illustration</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Motion design</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Production &amp; delivery</div>
+        </div>
+      </div>
+      <div style="background:#F5F5F2;border:1px solid #ECECE8;border-radius:24px;padding:28px;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;">Surfaces</div>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:11px;padding-top:24px;">
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Blog &amp; education</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Social campaigns</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Product spot art</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Events &amp; sponsorship</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATEMENT -->
+    <div style="margin-top:16px;background:#7132F4;color:#fff;border-radius:24px;padding:clamp(32px,5vw,56px);overflow:hidden;position:relative;">
+      <div style="position:absolute;inset:0;z-index:0;"><image-slot id="kr-statement" src="assets/images/kr-statement.webp" fit="cover" free="" shape="rect" placeholder="Drop a PNG. Double-click to move, scale, and crop against the tile edges." style="width:100%;height:100%;display:block;"></image-slot></div>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ clearStatement }}" title="Remove image" style="position:absolute;top:14px;right:14px;z-index:5;display:inline-flex;align-items:center;gap:7px;border:none;border-radius:999px;background:rgba(11,11,12,0.78);color:#fff;font-family:'Geist';font-size:12px;font-weight:600;padding:8px 13px;cursor:pointer;" style-hover="background:#E5484D;">✕ Remove image</button>
+      </sc-if>
+      <div style="position:relative;z-index:2;">
+      <p style="font-family:'Archivo';font-weight:700;font-size:clamp(24px,3.4vw,40px);line-height:1.12;letter-spacing:-0.025em;margin:0;max-width:20ch;">Crypto is intimidating. The job was to make it feel human, optimistic, warm, and unmistakably Kraken.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 DESIGN & ILLUSTRATION -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#6C4DF6;margin-bottom:30px;">Selected work</div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#6C4DF6;font-variant-numeric:tabular-nums;">01</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Design &amp; Illustration</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Editorial illustration for Kraken Learn, blog, and social.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:160px;gap:16px;grid-auto-flow:dense;">
+      <image-slot id="kr-di-1" src="assets/images/kr-di-1.webp" shape="rounded" radius="20" placeholder="Learn About Crypto, hero" style="grid-column:span 4;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="kr-di-2" src="assets/images/kr-di-2.webp" shape="rounded" radius="20" placeholder="What is a DAO?" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="kr-di-3" src="assets/images/kr-di-3.webp" shape="rounded" radius="20" placeholder="What is The Bitcoin Whitepaper?" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="kr-di-4" src="assets/images/kr-di-4.webp" shape="rounded" radius="20" placeholder="Kraken NFT" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="kr-di-5" src="assets/images/kr-di-5.webp" shape="rounded" radius="20" placeholder="Introducing Multi-Collateral Futures" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="kr-di-6" shape="rounded" radius="20" placeholder="Kraken’s 2021 Year in Review" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="kr-di-7" shape="rounded" radius="20" placeholder="Satoshi to USD Converter" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra0 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add0 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 02 WEB LAYOUT -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#6C4DF6;font-variant-numeric:tabular-nums;">02</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Web Layout</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Illustrated landing and education pages.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:210px;gap:16px;">
+      <image-slot id="kr-web-1" src="assets/images/kr-web-1.webp" shape="rounded" radius="20" placeholder="Education landing page" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="kr-web-2" shape="rounded" radius="20" placeholder="Product / feature page" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra1 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add1 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 03 SPOT ILLUSTRATION -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#6C4DF6;font-variant-numeric:tabular-nums;">03</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Spot Illustration</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Reusable spot illustrations for product, features,<br>and education.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:160px;gap:16px;">
+      <image-slot free="" id="kr-spot-1" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-2" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-3" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-4" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-5" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-6" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-7" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-8" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-9" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-10" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-11" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="kr-spot-12" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra2 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot free="" id="{{ t.id }}" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add2 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 04 MOTION DESIGN -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#6C4DF6;font-variant-numeric:tabular-nums;">04</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Motion Design</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Isometric brand loop, built in After Effects.</p>
+    </div>
+    <div style="position:relative;display:flex;justify-content:flex-start;">
+      <video-slot id="kr-mo-1" src="assets/videos/kr-mo-1.mp4" radius="24" loop="" autoplay="" muted="" playsinline="" placeholder="Drop your video (square)" style="width:min(100%,420px);aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section id="about" style="max-width:1180px;margin:72px auto 0;padding:0 24px;">
+    <a href="#flipster" style="display:flex;align-items:center;justify-content:space-between;gap:24px;text-decoration:none;border-top:1px solid #ECECE8;border-bottom:1px solid #ECECE8;padding:40px 0;color:#0B0B0C;" style-hover="color:#6C4DF6;">
+      <span style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;">Next case study</span>
+      <span style="font-family:'Archivo';font-weight:800;font-size:clamp(34px,5.5vw,64px);letter-spacing:-0.03em;line-height:1;display:flex;align-items:center;gap:18px;"><span>Flipster</span> <span style="font-size:0.8em;">→</span></span>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" style="max-width:1180px;margin:0 auto;padding:56px 24px 64px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+      <div>
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:34px;width:auto;display:block;">
+        <div style="font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-0.02em;margin-top:16px;color:#0B0B0C;">Kristofor Syphers</div>
+        <div style="font-family:'Geist';font-size:14px;color:#74747A;margin-top:4px;">Graphic design · Illustration · Motion · Brand</div>
+      </div>
+    </div>
+    <div style="margin-top:40px;font-size:12px;color:#B4B4B8;">© 2026 Kristofor Syphers. Built one illustration at a time.</div>
+  </footer>
+
+  <sc-if value="{{ showEdit }}" hint-placeholder-val="{{ false }}">
+  <button onClick="{{ toggleEdit }}" style="position:fixed;right:20px;bottom:20px;z-index:100;display:inline-flex;align-items:center;gap:9px;background:#0B0B0C;color:#fff;border:none;padding:12px 18px;border-radius:999px;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.18);" style-hover="background:#2A2A2A;"><span style="width:7px;height:7px;border-radius:50%;background:#22C55E;display:inline-block;"></span>{{ editLabel }}</button>
+  </sc-if>
+
+</main>
+</sc-if>
+
+<sc-if value="{{ isFlipster }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Flipster Case Study" style="width:100%;overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:saturate(1.5) blur(14px);-webkit-backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid #ECECE8;">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#home" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
+        <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:26px;">
+        <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
+        <a href="Home.dc.html#about" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
+        <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#0B0B0C;color:#fff;padding:9px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;" style-hover="background:#2563EB;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#6CF69B;display:inline-block;"></span><span>Let’s talk</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CASE HEADER -->
+  <section id="top" style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <span style="background:#E6EEFF;color:#1742B0;padding:6px 13px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Case Study</span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9A9AA0;">VISUAL &amp; BRAND · 2024–PRESENT</span>
+    </div>
+    <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(42px,6.4vw,80px);line-height:0.96;letter-spacing:-0.038em;margin:26px 0 0;max-width:17ch;color:#0B0B0C;">A loud visual system for a crypto trading app.</h1>
+    <p style="font-family:'Geist';font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:#4A4A50;max-width:60ch;margin:28px 0 0;text-wrap:pretty;">Building Flipster's visual brand across product, social, and motion, strong illustration library to a meme-fuelled personality that turns trading wins into shareable moments.</p>
+
+    <!-- META STRIP -->
+    <div style="margin-top:40px;background:#F5F5F2;border:1px solid #ECECE8;border-radius:20px;padding:22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Role</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Visual Designer</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Client</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Flipster</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Timeline</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">2024–Present · In-house</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Scope</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Visual ·&nbsp;&nbsp;Illustration&nbsp;· Motion</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO VISUAL -->
+  <section style="max-width:1180px;margin:0 auto;padding:20px 24px 0;">
+    <image-slot id="fl-hero" src="assets/images/fl-hero.webp" shape="rounded" radius="28" placeholder="Drop the Flipster hero: the “Make Your Wallet Great Again” key art" style="width:100%;height:min(56vw,560px);display:block;"></image-slot>
+  </section>
+
+  <!-- OVERVIEW BENTO -->
+  <section id="work" style="max-width:1180px;margin:0 auto;padding:56px 24px 0;">
+    <div style="display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:16px;align-items:stretch;">
+      <div style="background:#F5F5F2;border:1px solid #ECECE8;border-radius:24px;padding:32px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#2563EB;">Overview</div>
+        <p style="font-family:'Geist';font-size:17px;line-height:1.6;color:#2B2B30;margin:16px 0 0;text-wrap:pretty;">As Visual Designer at Flipster, I developed visual brand identities and marketing materials across multiple channels. The work spans a deep icon library, blog and social key art, in-app illustration, and a motion sticker set that gives the brand its playful, competitive voice.</p>
+      </div>
+      <div style="background:#0B0B0C;color:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9DBBFF;">What I did</div>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:11px;padding-top:24px;">
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Visual identity</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Icon systems</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Motion design</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Marketing &amp; social</div>
+        </div>
+      </div>
+      <div style="background:#F5F5F2;border:1px solid #ECECE8;border-radius:24px;padding:28px;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;">Surfaces</div>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:11px;padding-top:24px;">
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">App &amp; product</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Blog covers</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Social campaigns</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Motion stickers</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATEMENT -->
+    <div style="margin-top:16px;background:#0A84FF;color:#fff;border-radius:24px;padding:clamp(32px,5vw,56px);overflow:hidden;position:relative;">
+      <div style="position:absolute;inset:0;z-index:0;"><image-slot id="flip-statement" src="assets/images/flip-statement.webp" fit="cover" free="" shape="rect" placeholder="Drop a PNG. Double-click to move, scale, and crop against the tile edges." style="width:100%;height:100%;display:block;"></image-slot></div>
+      <div style="position:relative;z-index:2;">
+      <p style="font-family:'Archivo';font-weight:700;font-size:clamp(24px,3.4vw,40px);line-height:1.12;letter-spacing:-0.025em;margin:0;max-width:22ch;">Crypto trading is high-stakes. Flipster's visual language makes it feel like a game you actually want to play.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 DESIGN & ILLUSTRATION -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#2563EB;margin-bottom:30px;">Selected work</div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#2563EB;font-variant-numeric:tabular-nums;">01</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Design &amp; Illustration</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Marketing key art, campaign promos, and feature launches across social and the app.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:200px;gap:16px;grid-auto-flow:dense;">
+      <image-slot id="fl-di-1" src="assets/images/fl-di-1.webp" shape="rounded" radius="20" placeholder="“Make Your Wallet Great Again” key art" style="grid-column:span 4;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-di-2" src="assets/images/fl-di-2.webp" shape="rounded" radius="20" placeholder="Gift 30-day VIP status, promo" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-di-3" src="assets/images/fl-di-3.webp" shape="rounded" radius="20" placeholder="Loyalty / bonus campaign" style="grid-column:span 2;grid-row:span 3;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-di-4" src="assets/images/fl-di-4.webp" shape="rounded" radius="20" placeholder="Token listing announcement" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-di-5" src="assets/images/fl-di-5.webp" shape="rounded" radius="20" placeholder="Trading challenge, social" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra0 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add0 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 02 BLOG COVERS -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#2563EB;font-variant-numeric:tabular-nums;">02</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Blog Covers</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Editorial cover illustrations for the Flipster blog.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:220px;gap:16px;">
+      <image-slot id="fl-bc-1" src="assets/images/fl-bc-1.webp" shape="rounded" radius="20" placeholder="Blog cover, crypto basics" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-bc-2" src="assets/images/fl-bc-2.webp" shape="rounded" radius="20" placeholder="Blog cover, market movers" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-bc-3" src="assets/images/fl-bc-3.webp" shape="rounded" radius="20" placeholder="Blog cover, security" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-bc-4" src="assets/images/fl-bc-4.webp" shape="rounded" radius="20" placeholder="Blog cover, product update" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-bc-5" src="assets/images/fl-bc-5.webp" shape="rounded" radius="20" placeholder="Blog cover, token spotlight" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-bc-6" src="assets/images/fl-bc-6.webp" shape="rounded" radius="20" placeholder="Blog cover, how-to guide" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra1 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add1 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 03 SPOT ILLUSTRATIONS -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#2563EB;font-variant-numeric:tabular-nums;">03</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Spot Illustrations</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">A library of spot illustrations for features, empty states, and education.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:160px;gap:16px;">
+      <image-slot id="fl-spot-1" src="assets/images/fl-spot-1.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-2" src="assets/images/fl-spot-2.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-3" src="assets/images/fl-spot-3.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-4" src="assets/images/fl-spot-4.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-5" src="assets/images/fl-spot-5.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-6" src="assets/images/fl-spot-6.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-7" src="assets/images/fl-spot-7.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-8" src="assets/images/fl-spot-8.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-9" src="assets/images/fl-spot-9.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-10" src="assets/images/fl-spot-10.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-11" src="assets/images/fl-spot-11.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-spot-12" src="assets/images/fl-spot-12.webp" shape="rounded" radius="18" placeholder="Spot illustration" style="grid-column:span 1;grid-row:span 1;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra2 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add2 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 04 WEB LAYOUTS -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#2563EB;font-variant-numeric:tabular-nums;">04</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Web Layouts</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Landing pages and in-product layouts built on the system.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:200px;gap:16px;">
+      <image-slot id="fl-web-1" src="assets/images/fl-web-1.webp" shape="rounded" radius="20" placeholder="VIP Boost landing page" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-web-2" src="assets/images/fl-web-2.webp" shape="rounded" radius="20" placeholder="Promo / campaign page" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-web-3" src="assets/images/fl-web-3.webp" shape="rounded" radius="20" placeholder="In-app layout" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="fl-web-4" src="assets/images/fl-web-4.webp" shape="rounded" radius="20" placeholder="Feature page" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra3 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add3 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 05 MOTION -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#2563EB;font-variant-numeric:tabular-nums;">05</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Motion</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Looping promos and product motion, built in After Effects.</p>
+    </div>
+    <div style="position:relative;">
+      <video-slot id="fl-mo-1" src="assets/videos/fl-mo-1.mp4" radius="24" loop="" autoplay="" muted="" placeholder="Drop your motion promo (MP4 recommended)" style="width:100%;height:min(56vw,620px);display:block;"></video-slot>
+    </div>
+  </section>
+
+  <!-- 06 FLIPSTER x TOKEN TELEGRAM STICKERS -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#2563EB;font-variant-numeric:tabular-nums;">06</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Flipster × Talon Telegram Stickers</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">An animated sticker set for Telegram that turns trading moments into shareable memes.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px 16px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <video-slot id="fl-stk-1" src="assets/videos/fl-stk-1.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" placeholder="Drop the AFK sticker (MP4)" style="width:100%;aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+        <div style="font-family:'Archivo';font-weight:700;font-size:15px;text-align:center;color:#0B0B0C;">AFK</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <video-slot id="fl-stk-2" src="assets/videos/fl-stk-2.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" placeholder="Drop the Flex sticker (MP4)" style="width:100%;aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+        <div style="font-family:'Archivo';font-weight:700;font-size:15px;text-align:center;color:#0B0B0C;">Flex</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <video-slot id="fl-stk-3" src="assets/videos/fl-stk-3.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" placeholder="Drop the GG sticker (MP4)" style="width:100%;aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+        <div style="font-family:'Archivo';font-weight:700;font-size:15px;text-align:center;color:#0B0B0C;">GG</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <video-slot id="fl-stk-4" src="assets/videos/fl-stk-4.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" placeholder="Drop the GOAT sticker (MP4)" style="width:100%;aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+        <div style="font-family:'Archivo';font-weight:700;font-size:15px;text-align:center;color:#0B0B0C;">GOAT</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <video-slot id="fl-stk-5" src="assets/videos/fl-stk-5.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" placeholder="Drop the Godlike sticker (MP4)" style="width:100%;aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+        <div style="font-family:'Archivo';font-weight:700;font-size:15px;text-align:center;color:#0B0B0C;">Godlike</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <video-slot id="fl-stk-6" src="assets/videos/fl-stk-6.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" placeholder="Drop the Lit sticker (MP4)" style="width:100%;aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+        <div style="font-family:'Archivo';font-weight:700;font-size:15px;text-align:center;color:#0B0B0C;">Lit</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <video-slot id="fl-stk-7" src="assets/videos/fl-stk-7.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" placeholder="Drop the Megakill sticker (MP4)" style="width:100%;aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+        <div style="font-family:'Archivo';font-weight:700;font-size:15px;text-align:center;color:#0B0B0C;">Megakill</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <video-slot id="fl-stk-8" src="assets/videos/fl-stk-8.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" placeholder="Drop the Rampage sticker (MP4)" style="width:100%;aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+        <div style="font-family:'Archivo';font-weight:700;font-size:15px;text-align:center;color:#0B0B0C;">Rampage</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <video-slot id="fl-stk-9" src="assets/videos/fl-stk-9.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" placeholder="Drop the Slay sticker (MP4)" style="width:100%;aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+        <div style="font-family:'Archivo';font-weight:700;font-size:15px;text-align:center;color:#0B0B0C;">Slay</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <video-slot id="fl-stk-10" src="assets/videos/fl-stk-10.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" placeholder="Drop the SUS sticker (MP4)" style="width:100%;aspect-ratio:1/1;height:auto;display:block;"></video-slot>
+        <div style="font-family:'Archivo';font-weight:700;font-size:15px;text-align:center;color:#0B0B0C;">SUS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section style="max-width:1180px;margin:72px auto 0;padding:0 24px;">
+    <a href="#kraken" style="display:flex;align-items:center;justify-content:space-between;gap:24px;text-decoration:none;border-top:1px solid #ECECE8;border-bottom:1px solid #ECECE8;padding:40px 0;color:#0B0B0C;" style-hover="color:#2563EB;">
+      <span style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;">Next case study</span>
+      <span style="font-family:'Archivo';font-weight:800;font-size:clamp(34px,5.5vw,64px);letter-spacing:-0.03em;line-height:1;display:flex;align-items:center;gap:18px;"><span>Kraken</span> <span style="font-size:0.8em;">→</span></span>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" style="max-width:1180px;margin:0 auto;padding:56px 24px 64px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+      <div>
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:34px;width:auto;display:block;">
+        <div style="font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-0.02em;margin-top:16px;color:#0B0B0C;">Kristofor Syphers</div>
+        <div style="font-family:'Geist';font-size:14px;color:#74747A;margin-top:4px;">Graphic design · Illustration · Motion · Brand</div>
+      </div>
+    </div>
+    <div style="margin-top:40px;font-size:12px;color:#B4B4B8;">© 2026 Kristofor Syphers. Built loud.</div>
+  </footer>
+
+  <sc-if value="{{ showEdit }}" hint-placeholder-val="{{ false }}">
+  <button onClick="{{ toggleEdit }}" style="position:fixed;right:20px;bottom:20px;z-index:100;display:inline-flex;align-items:center;gap:9px;background:#0B0B0C;color:#fff;border:none;padding:12px 18px;border-radius:999px;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.18);" style-hover="background:#2A2A2A;"><span style="width:7px;height:7px;border-radius:50%;background:#22C55E;display:inline-block;"></span>{{ editLabel }}</button>
+  </sc-if>
+
+</main>
+</sc-if>
+
+<sc-if value="{{ isBoh }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Bank of Hawaii Case Study" style="width:100%;overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:saturate(1.5) blur(14px);-webkit-backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid #ECECE8;">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#home" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
+        <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:26px;">
+        <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
+        <a href="Home.dc.html#about" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
+        <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#0B0B0C;color:#fff;padding:9px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;" style-hover="background:#0E6BA8;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#6CF69B;display:inline-block;"></span><span>Let’s talk</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CASE HEADER -->
+  <section id="top" style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <span style="background:#E4F0FA;color:#084A77;padding:6px 13px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Case Study</span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9A9AA0;">Brand &amp; Campaign · 2019–21</span>
+    </div>
+    <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(42px,6.4vw,80px);line-height:0.96;letter-spacing:-0.038em;margin:26px 0 0;max-width:17ch;color:#0B0B0C;">Owning the visual language of an island bank.</h1>
+    <p style="font-family:'Geist';font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:#4A4A50;max-width:60ch;margin:28px 0 0;text-wrap:pretty;">Two years managing The Bank of Hawaii's brand visual standards, campaigns, illustrated motion, and print collateral, all held together by one consistent, warm, island-rooted system.</p>
+
+    <!-- META STRIP -->
+    <div style="margin-top:40px;background:#F5F5F2;border:1px solid #ECECE8;border-radius:20px;padding:22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Role</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Brand Studio Graphic Designer</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Client</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">The Bank of Hawaii</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Timeline</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">2019–2021 · In-house</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Scope</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Brand · Campaign · Motion · Print</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO VISUAL -->
+  <section style="max-width:1180px;margin:0 auto;padding:20px 24px 0;">
+    <image-slot id="boh-hero" src="assets/images/boh-hero.webp" shape="rounded" radius="28" placeholder="Drop the GROW Account key art or a campaign hero" style="width:100%;height:min(56vw,560px);display:block;"></image-slot>
+  </section>
+
+  <!-- OVERVIEW BENTO -->
+  <section id="work" style="max-width:1180px;margin:0 auto;padding:56px 24px 0;">
+    <div style="display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:16px;align-items:stretch;">
+      <div style="background:#F5F5F2;border:1px solid #ECECE8;border-radius:24px;padding:32px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0E6BA8;">Overview</div>
+        <p style="font-family:'Geist';font-size:17px;line-height:1.6;color:#2B2B30;margin:16px 0 0;text-wrap:pretty;">As Brand Studio Graphic Designer, I was responsible for managing the company's brand visual language standards. I designed product campaigns, illustrated and animated lifestyle stories, and produced print collateral, balancing institutional trust with the warmth of the islands.</p>
+      </div>
+      <div style="background:#0B0B0C;color:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#8FC6EC;">What I did</div>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:11px;padding-top:24px;">
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Brand standards</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Campaign design</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Illustration &amp; motion</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Print &amp; collateral</div>
+        </div>
+      </div>
+      <div style="background:#F5F5F2;border:1px solid #ECECE8;border-radius:24px;padding:28px;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;">Surfaces</div>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:11px;padding-top:24px;">
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Product campaigns</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Social &amp; awareness</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Illustrated video</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Print collateral</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATEMENT -->
+    <div style="margin-top:16px;background:#192B9A;color:#fff;border-radius:24px;padding:clamp(32px,5vw,56px);overflow:hidden;position:relative;">
+      <div style="position:absolute;inset:0;z-index:0;"><image-slot id="boh-statement" fit="cover" free="" shape="rect" placeholder="Drop a PNG. Double-click to move, scale, and crop against the tile edges." style="width:100%;height:100%;display:block;"></image-slot></div>
+      <div style="position:relative;z-index:2;">
+      <p style="font-family:'Archivo';font-weight:700;font-size:clamp(24px,3.4vw,40px);line-height:1.12;letter-spacing:-0.025em;margin:0;max-width:22ch;">A bank's brand has to feel trustworthy and warm at once: institutional polish meeting approachable island illustration.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 DESIGN & ILLUSTRATION -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0E6BA8;margin-bottom:30px;">Selected work</div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#0E6BA8;font-variant-numeric:tabular-nums;">01</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Design &amp; Illustration</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Product campaigns, illustration, and stationery across digital and print.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:200px;gap:16px;grid-auto-flow:dense;">
+      <image-slot id="boh-di-1" src="assets/images/boh-di-1.webp" shape="rounded" radius="20" placeholder="GROW Account campaign" style="grid-column:span 4;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="boh-di-2" src="assets/images/boh-di-2.webp" shape="rounded" radius="20" placeholder="Women’s History Month, key art" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="boh-di-3" src="assets/images/boh-di-3.webp" shape="rounded" radius="20" placeholder="Lei portrait illustration" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="boh-di-4" src="assets/images/boh-di-4.webp" shape="rounded" radius="20" placeholder="Stationery &amp; business cards" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="boh-di-5" src="assets/images/boh-di-5.webp" shape="rounded" radius="20" placeholder="Bank of Hawaii Together, web" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="boh-di-6" src="assets/images/boh-di-6.webp" shape="rounded" radius="20" placeholder="“You’re off to a great start” welcome folder, print" style="grid-column:span 6;grid-row:span 2;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra0 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add0 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 02 GUIDE BOOK -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#0E6BA8;font-variant-numeric:tabular-nums;">02</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Guide Book</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">“Complete Real Estate Financing in Hawaii,” cover and interior spreads.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:200px;gap:16px;grid-auto-flow:dense;">
+      <image-slot id="boh-gb-1" src="assets/images/boh-gb-1.webp" shape="rounded" radius="20" placeholder="Guide book, cover" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="boh-gb-2" src="assets/images/boh-gb-2.webp" shape="rounded" radius="20" placeholder="Guide book, interior spread" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="boh-gb-3" src="assets/images/boh-gb-3.webp" shape="rounded" radius="20" placeholder="Spread detail" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="boh-gb-4" src="assets/images/boh-gb-4.webp" shape="rounded" radius="20" placeholder="Spread detail" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="boh-gb-5" src="assets/images/boh-gb-5.webp" shape="rounded" radius="20" placeholder="Spread detail" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra1 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add1 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 03 MOTION DESIGN -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#0E6BA8;font-variant-numeric:tabular-nums;">03</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Motion Design</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Various informational motion graphics and Illustrated lifestyle loops for campaign video, from holidays to home.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:200px;gap:16px;grid-auto-flow:dense;">
+      <div style="position:relative;grid-column:span 6;grid-row:span 3;">
+        <video-slot id="boh-mo-1" src="assets/videos/boh-mo-1.mp4" radius="24" loop="" autoplay="" muted="" playsinline="" placeholder="Drop your video (MP4)" style="width:100%;height:100%;display:block;"></video-slot>
+      </div>
+      <div style="position:relative;grid-column:span 3;grid-row:span 2;">
+        <video-slot id="boh-mo-2" src="assets/videos/boh-mo-2.mp4" radius="20" loop="" autoplay="" muted="" playsinline="" placeholder="Drop your video (MP4)" style="width:100%;height:100%;display:block;"></video-slot>
+      </div>
+      <div style="position:relative;grid-column:span 3;grid-row:span 2;">
+        <video-slot id="boh-mo-3" src="assets/videos/boh-mo-3.mp4" radius="20" loop="" autoplay="" muted="" playsinline="" placeholder="Drop your video (MP4)" style="width:100%;height:100%;display:block;"></video-slot>
+      </div>
+      <div style="position:relative;grid-column:span 3;grid-row:span 2;">
+        <video-slot id="boh-mo-4" src="assets/videos/boh-mo-4.mp4" radius="20" loop="" autoplay="" muted="" playsinline="" placeholder="Drop your video (MP4)" style="width:100%;height:100%;display:block;"></video-slot>
+      </div>
+      <div style="position:relative;grid-column:span 3;grid-row:span 2;">
+        <video-slot id="boh-mo-5" src="assets/videos/boh-mo-5.mp4" radius="20" loop="" autoplay="" muted="" playsinline="" placeholder="Drop your video (MP4)" style="width:100%;height:100%;display:block;"></video-slot>
+      </div>
+    
+      <sc-for list="{{ extra2 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <sc-if value="{{ t.video }}" hint-placeholder-val="{{ true }}">
+            <video-slot id="{{ t.id }}" src="assets/videos/{{ t.id }}.mp4" radius="20" loop="" autoplay="" muted="" playsinline="" placeholder="Drop your video (MP4)" style="width:100%;height:100%;display:block;"></video-slot>
+          </sc-if>
+          <sc-if value="{{ t.notVideo }}" hint-placeholder-val="{{ true }}">
+            <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          </sc-if>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add2 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+        <button onClick="{{ addVid2 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add video</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section style="max-width:1180px;margin:72px auto 0;padding:0 24px;">
+    <a href="#dataxu" style="display:flex;align-items:center;justify-content:space-between;gap:24px;text-decoration:none;border-top:1px solid #ECECE8;border-bottom:1px solid #ECECE8;padding:40px 0;color:#0B0B0C;" style-hover="color:#0E6BA8;">
+      <span style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;">Next case study</span>
+      <span style="font-family:'Archivo';font-weight:800;font-size:clamp(34px,5.5vw,64px);letter-spacing:-0.03em;line-height:1;display:flex;align-items:center;gap:18px;"><span>Dataxu</span> <span style="font-size:0.8em;">→</span></span>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" style="max-width:1180px;margin:0 auto;padding:56px 24px 64px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+      <div>
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:34px;width:auto;display:block;">
+        <div style="font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-0.02em;margin-top:16px;color:#0B0B0C;">Kristofor Syphers</div>
+        <div style="font-family:'Geist';font-size:14px;color:#74747A;margin-top:4px;">Graphic design · Illustration · Motion · Brand</div>
+      </div>
+    </div>
+    <div style="margin-top:40px;font-size:12px;color:#B4B4B8;">© 2026 Kristofor Syphers. Built to last.</div>
+  </footer>
+
+  <sc-if value="{{ showEdit }}" hint-placeholder-val="{{ false }}">
+  <button onClick="{{ toggleEdit }}" style="position:fixed;right:20px;bottom:20px;z-index:100;display:inline-flex;align-items:center;gap:9px;background:#0B0B0C;color:#fff;border:none;padding:12px 18px;border-radius:999px;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.18);" style-hover="background:#2A2A2A;"><span style="width:7px;height:7px;border-radius:50%;background:#22C55E;display:inline-block;"></span>{{ editLabel }}</button>
+  </sc-if>
+
+</main>
+</sc-if>
+
+<sc-if value="{{ isDataxu }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Dataxu Case Study" style="width:100%;overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:saturate(1.5) blur(14px);-webkit-backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid #ECECE8;">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#home" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
+        <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:26px;">
+        <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
+        <a href="Home.dc.html#about" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
+        <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#0B0B0C;color:#fff;padding:9px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;" style-hover="background:#EE6A1E;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#6CF69B;display:inline-block;"></span><span>Let’s talk</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- CASE HEADER -->
+  <section id="top" style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <span style="background:#FCE9DB;color:#B24A0E;padding:6px 13px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Case Study</span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9A9AA0;">Graphic &amp; Infographic · 2019</span>
+    </div>
+    <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(42px,6.4vw,80px);line-height:0.96;letter-spacing:-0.038em;margin:26px 0 0;max-width:17ch;color:#0B0B0C;">Making ad-tech data obvious.</h1>
+    <p style="font-family:'Geist';font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:#4A4A50;max-width:60ch;margin:28px 0 0;text-wrap:pretty;">Turning dense connected-TV data into stories a sales team could actually use: infographics, one-pagers, event collateral, and motion for a programmatic<br>advertising pioneer.</p>
+
+    <!-- META STRIP -->
+    <div style="margin-top:40px;background:#F5F5F2;border:1px solid #ECECE8;border-radius:20px;padding:22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Role</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Graphic Designer</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Client</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Dataxu</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Timeline</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">2019 · Contract</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Scope</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Graphic · Infographic · Motion</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HERO VISUAL -->
+  <section style="max-width:1180px;margin:0 auto;padding:20px 24px 0;">
+    <image-slot id="dx-hero" src="assets/images/dx-hero.webp" shape="rounded" radius="28" placeholder="Drop the “State of Connected TV” infographic hero" style="width:100%;height:min(56vw,560px);display:block;"></image-slot>
+  </section>
+
+  <!-- OVERVIEW BENTO -->
+  <section id="work" style="max-width:1180px;margin:0 auto;padding:56px 24px 0;">
+    <div style="display:grid;grid-template-columns:1.7fr 1fr 1fr;gap:16px;align-items:stretch;">
+      <div style="background:#F5F5F2;border:1px solid #ECECE8;border-radius:24px;padding:32px;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#EE6A1E;">Overview</div>
+        <p style="font-family:'Geist';font-size:17px;line-height:1.6;color:#2B2B30;margin:16px 0 0;text-wrap:pretty;">At Dataxu I developed on-brand visual concepts and designs for digital, print, and video to help drive growth. The bulk of the work translated complex connected-TV and audience data into clean, persuasive infographics and sales collateral.</p>
+      </div>
+      <div style="background:#0B0B0C;color:#fff;border-radius:24px;padding:28px;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#F6B98C;">What I did</div>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:11px;padding-top:24px;">
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Infographic design</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Sales collateral</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Data visualisation</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;">Motion</div>
+        </div>
+      </div>
+      <div style="background:#F5F5F2;border:1px solid #ECECE8;border-radius:24px;padding:28px;display:flex;flex-direction:column;">
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;">Surfaces</div>
+        <div style="margin-top:auto;display:flex;flex-direction:column;gap:11px;padding-top:24px;">
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Sales enablement</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Infographics</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Event collateral</div>
+          <div style="font-family:'Archivo';font-weight:600;font-size:16px;color:#2B2B30;">Explainer video</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATEMENT -->
+    <div style="margin-top:16px;background:#F06013;color:#fff;border-radius:24px;padding:clamp(32px,5vw,56px);overflow:hidden;position:relative;">
+      <div style="position:absolute;inset:0;z-index:0;"><image-slot id="dx-statement" fit="cover" free="" shape="rect" placeholder="Drop a PNG. Double-click to move, scale, and crop against the tile edges." style="width:100%;height:100%;display:block;background-color:#f16c15;"></image-slot></div>
+      <div style="position:relative;z-index:2;">
+      <p style="font-family:'Archivo';font-weight:700;font-size:clamp(24px,3.4vw,40px);line-height:1.12;letter-spacing:-0.025em;margin:0;max-width:22ch;">Connected TV is complicated. Good data design makes the pitch obvious in five seconds.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 ADS -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#EE6A1E;margin-bottom:30px;">Selected work</div>
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#EE6A1E;font-variant-numeric:tabular-nums;">01</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Ads</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Connected-TV ad concepts and display creative for the<br>sales pitch.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:200px;gap:16px;grid-auto-flow:dense;">
+      <image-slot id="dx-ads-1" src="assets/images/dx-ads-1.webp" shape="rounded" radius="20" placeholder="CTV viewership is higher than ever" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-ads-2" src="assets/images/dx-ads-2.webp" shape="rounded" radius="20" placeholder="TV viewership is down… or is it?" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-ads-3" src="assets/images/dx-ads-3.webp" shape="rounded" radius="20" placeholder="TV viewership has changed" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-ads-4" src="assets/images/dx-ads-4.webp" shape="rounded" radius="20" placeholder="People watch TV differently" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-ads-5" src="assets/images/dx-ads-5.webp" shape="rounded" radius="20" placeholder="MISSING: your target audience" style="grid-column:span 2;grid-row:span 1;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra0 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add0 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 02 EVENTS -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#EE6A1E;font-variant-numeric:tabular-nums;">02</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Events</h2>
+      </div><p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Conference invites and event collateral.</p>
+      
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:200px;gap:16px;grid-auto-flow:dense;">
+      <image-slot id="dx-evt-1" src="assets/images/dx-evt-1.webp" shape="rounded" radius="20" placeholder="Dinner with dataxu, ANA 2019 invite" style="grid-column:span 4;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-evt-2" src="assets/images/dx-evt-2.webp" shape="rounded" radius="20" placeholder="Best Programmatic TV Campaign, finalist" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-evt-3" src="assets/images/dx-evt-3.webp" shape="rounded" radius="20" placeholder="Invite mailer, pattern" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-evt-4" src="assets/images/dx-evt-4.webp" shape="rounded" radius="20" placeholder="Invite mailer, opened" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-evt-5" src="assets/images/dx-evt-5.webp" shape="rounded" radius="20" placeholder="Event collateral" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra1 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add1 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 03 WEB LAYOUT -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#EE6A1E;font-variant-numeric:tabular-nums;">03</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Web Layout</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Campaign and product web pages.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:210px;gap:16px;">
+      <image-slot id="dx-web-1" src="assets/images/dx-web-1.webp" shape="rounded" radius="20" placeholder="Campaign landing page" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-web-2" src="assets/images/dx-web-2.webp" shape="rounded" radius="20" placeholder="Product / feature page" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra2 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add2 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 04 MOTION DESIGN -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#EE6A1E;font-variant-numeric:tabular-nums;">04</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Motion Design</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Motion graphic loops.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <video-slot id="dx-mo-1" src="assets/videos/dx-mo-1.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" bg="#FFFFFF" fit="contain" placeholder="Drop a GIF or video (MP4)" style="width:100%;aspect-ratio:16/9;height:auto;display:block;"></video-slot>
+      <video-slot id="dx-mo-2" src="assets/videos/dx-mo-2.mp4" radius="18" loop="" autoplay="" muted="" playsinline="" bg="#FFFFFF" fit="contain" placeholder="Drop a GIF or video (MP4)" style="width:100%;aspect-ratio:16/9;height:auto;display:block;"></video-slot>
+    </div>
+  </section>
+
+  <!-- 05 INFOGRAPHICS -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#EE6A1E;font-variant-numeric:tabular-nums;">05</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Infographics</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">The “State of Connected TV” report, audience and viewing data visualised.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:200px;gap:16px;">
+      <image-slot id="dx-info-1" src="assets/images/dx-info-1.webp" free="" shape="rounded" radius="20" placeholder="State of Connected TV, full report" style="grid-column:span 2;grid-row:span 8;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-info-2" shape="rounded" radius="20" placeholder="Connected TV audience demographics" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot id="dx-info-3" shape="rounded" radius="20" placeholder="When are they watching?" style="grid-column:span 3;grid-row:span 2;width:100%;height:100%;"></image-slot>
+    
+      <sc-for list="{{ extra3 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add3 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- 06 VIDEO -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#EE6A1E;font-variant-numeric:tabular-nums;">06</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Video</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:42ch;margin:0;">Brand and product video for the connected-TV story.</p>
+    </div>
+    <div style="position:relative;">
+      <video-slot id="dx-vid-1" src="assets/videos/dx-vid-1.mp4" radius="24" loop="" autoplay="" muted="" playsinline="" placeholder="Drop your video (MP4)" style="width:100%;height:min(56vw,640px);display:block;"></video-slot>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section style="max-width:1180px;margin:72px auto 0;padding:0 24px;">
+    <a href="#freelance" style="display:flex;align-items:center;justify-content:space-between;gap:24px;text-decoration:none;border-top:1px solid #ECECE8;border-bottom:1px solid #ECECE8;padding:40px 0;color:#0B0B0C;" style-hover="color:#EE6A1E;">
+      <span style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;">Next case study</span>
+      <span style="font-family:'Archivo';font-weight:800;font-size:clamp(34px,5.5vw,64px);letter-spacing:-0.03em;line-height:1;display:flex;align-items:center;gap:18px;"><span>Freelance</span> <span style="font-size:0.8em;">→</span></span>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" style="max-width:1180px;margin:0 auto;padding:56px 24px 64px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+      <div>
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:34px;width:auto;display:block;">
+        <div style="font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-0.02em;margin-top:16px;color:#0B0B0C;">Kristofor Syphers</div>
+        <div style="font-family:'Geist';font-size:14px;color:#74747A;margin-top:4px;">Graphic design · Illustration · Motion · Brand</div>
+      </div>
+    </div>
+    <div style="margin-top:40px;font-size:12px;color:#B4B4B8;">© 2026 Kristofor Syphers. Built clear.</div>
+  </footer>
+
+  <sc-if value="{{ showEdit }}" hint-placeholder-val="{{ false }}">
+  <button onClick="{{ toggleEdit }}" style="position:fixed;right:20px;bottom:20px;z-index:100;display:inline-flex;align-items:center;gap:9px;background:#0B0B0C;color:#fff;border:none;padding:12px 18px;border-radius:999px;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.18);" style-hover="background:#2A2A2A;"><span style="width:7px;height:7px;border-radius:50%;background:#22C55E;display:inline-block;"></span>{{ editLabel }}</button>
+  </sc-if>
+
+</main>
+</sc-if>
+
+<sc-if value="{{ isFreelance }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Freelance Collection" style="width:100%;overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:saturate(1.5) blur(14px);-webkit-backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid #ECECE8;">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#home" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
+        <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:26px;">
+        <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
+        <a href="Home.dc.html#about" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
+        <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#0B0B0C;color:#fff;padding:9px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;" style-hover="background:#2A2A2A;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#22C55E;display:inline-block;"></span><span>Let’s talk</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HEADER -->
+  <section id="top" style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <span style="background:#F0F0EC;color:#0B0B0C;padding:6px 13px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Collection</span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9A9AA0;">Brand · Product · Illustration</span>
+    </div>
+    <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(42px,6.4vw,80px);line-height:0.96;letter-spacing:-0.038em;margin:26px 0 0;max-width:18ch;color:#0B0B0C;">Freelance work, across a range of brands.</h1>
+    <p style="font-family:'Geist';font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:#4A4A50;max-width:62ch;margin:28px 0 0;text-wrap:pretty;">Logo systems, product illustration, infographics, and full marketing sites, delivered for early-stage companies on tight timelines. A selection of recent client projects.</p>
+
+    <div style="margin-top:40px;background:#F5F5F2;border:1px solid #ECECE8;border-radius:20px;padding:22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Role</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Freelance Designer</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Timeline</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">2023–2024</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Scope</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Brand · Product · Web</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Clients</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">5 featured</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTRIES -->
+  <section style="max-width:1180px;margin:0 auto;padding:8px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">01</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Coin-Labs</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">3D brand illustration.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+    <div style="position:relative;grid-column:span 6;grid-row:span 3;">
+      <image-slot id="fr-0-0" src="assets/images/fr-0-0.webp" shape="rounded" radius="20" placeholder="Coin-Labs: 3D explosion key art" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    
+      <sc-for list="{{ extra0 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add0 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">02</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Rezi.ai</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Product infographics, comparison pages, and an explainer.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+    <div style="position:relative;grid-column:span 4;grid-row:span 2;">
+      <image-slot id="fr-1-0" src="assets/images/fr-1-0.webp" shape="rounded" radius="20" placeholder="Rezi: dashboard organisation" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+      <image-slot id="fr-1-1" src="assets/images/fr-1-1.webp" shape="rounded" radius="20" placeholder="“Describing your work ethic” infographic" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:span 2;grid-row:span 1;">
+      <image-slot id="fr-1-2" src="assets/images/fr-1-2.webp" shape="rounded" radius="20" placeholder="Pricing comparison" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:span 2;grid-row:span 1;">
+      <image-slot id="fr-1-3" shape="rounded" radius="20" placeholder="Rezi vs Enhancv" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:span 2;grid-row:span 1;">
+      <image-slot id="fr-1-4" src="assets/images/fr-1-4.webp" shape="rounded" radius="20" placeholder="Communication skills" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:1 / -1;grid-row:span 2;display:flex;justify-content:center;">
+      <video-slot id="fr-1-5" src="assets/videos/fr-1-5.mp4" fit="contain" radius="20" loop="" autoplay="" muted="" playsinline="" placeholder="Drop your explainer video (MP4)" style="width:min(100%,558px);height:100%;display:block;"></video-slot>
+    </div>
+    
+      <sc-for list="{{ extra1 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add1 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">03</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">DN Pro Solution</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Logo &amp; branding.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+    <div style="position:relative;grid-column:span 3;grid-row:span 2;">
+      <image-slot id="fr-2-0" src="assets/images/fr-2-0.webp" shape="rounded" radius="20" placeholder="DN Pro Solution: logo" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:span 3;grid-row:span 2;">
+      <image-slot id="fr-2-1" src="assets/images/fr-2-1.webp" shape="rounded" radius="20" placeholder="Brand application" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    
+      <sc-for list="{{ extra2 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add2 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">04</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">AuthorMoa</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Branding &amp; logo.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+    <div style="position:relative;grid-column:span 3;grid-row:span 2;">
+      <image-slot id="fr-3-0" src="assets/images/fr-3-0.webp" shape="rounded" radius="20" placeholder="AuthorMoa: logo" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:span 3;grid-row:span 2;">
+      <image-slot id="fr-3-1" src="assets/images/fr-3-1.webp" shape="rounded" radius="20" placeholder="Brand application" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    
+      <sc-for list="{{ extra3 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add3 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">05</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Zeta Production</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Brand identity, a custom illustration set, and the marketing site.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+    <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+      <image-slot id="fr-4-0" src="assets/images/fr-4-0.webp" shape="rounded" radius="20" placeholder="Zeta Production: logo" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:span 4;grid-row:span 2;">
+      <image-slot id="fr-4-1" src="assets/images/fr-4-1.webp" shape="rounded" radius="20" placeholder="Illustration set (40+ icons)" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:span 6;grid-row:span 2;">
+      <image-slot id="fr-4-2" shape="rounded" radius="20" placeholder="Zeta Production: website" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    
+      <sc-for list="{{ extra4 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot id="{{ t.id }}" src="assets/images/{{ t.id }}.webp" shape="rounded" radius="20" placeholder="New tile — drop an image" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add4 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+      </div>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+    <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+      <image-slot free="" id="fr-5-0" shape="rounded" radius="20" placeholder="Spot illustration" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+      <image-slot free="" id="fr-5-1" shape="rounded" radius="20" placeholder="Spot illustration" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+      <image-slot free="" id="fr-5-2" shape="rounded" radius="20" placeholder="Spot illustration" style="width:100%;height:100%;display:block;"></image-slot>
+    </div>
+    
+      <sc-for list="{{ extra5 }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot free="" fit="{{ t.fit }}" id="{{ t.id }}" shape="rounded" radius="20" placeholder="Spot illustration" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ add5 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #C9C9C2;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:14px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section style="max-width:1180px;margin:72px auto 0;padding:0 24px;">
+    <a href="#personal" style="display:flex;align-items:center;justify-content:space-between;gap:24px;text-decoration:none;border-top:1px solid #ECECE8;border-bottom:1px solid #ECECE8;padding:40px 0;color:#0B0B0C;" style-hover="opacity:0.55;">
+      <span style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;">Next project</span>
+      <span style="font-family:'Archivo';font-weight:800;font-size:clamp(34px,5.5vw,64px);letter-spacing:-0.03em;line-height:1;display:flex;align-items:center;gap:18px;"><span>Personal</span> <span style="font-size:0.8em;">→</span></span>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" style="max-width:1180px;margin:0 auto;padding:56px 24px 64px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+      <div>
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:34px;width:auto;display:block;">
+        <div style="font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-0.02em;margin-top:16px;color:#0B0B0C;">Kristofor Syphers</div>
+        <div style="font-family:'Geist';font-size:14px;color:#74747A;margin-top:4px;">Graphic design · Illustration · Motion · Brand</div>
+      </div>
+    </div>
+    <div style="margin-top:40px;font-size:12px;color:#B4B4B8;">© 2026 Kristofor Syphers. Built fast.</div>
+  </footer>
+
+  <sc-if value="{{ showEdit }}" hint-placeholder-val="{{ false }}">
+  <button onClick="{{ toggleEdit }}" style="position:fixed;right:20px;bottom:20px;z-index:100;display:inline-flex;align-items:center;gap:9px;background:#0B0B0C;color:#fff;border:none;padding:12px 18px;border-radius:999px;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.18);" style-hover="background:#2A2A2A;"><span style="width:7px;height:7px;border-radius:50%;background:#22C55E;display:inline-block;"></span>{{ editLabel }}</button>
+  </sc-if>
+
+</main>
+</sc-if>
+
+<sc-if value="{{ isPersonal }}" hint-placeholder-val="{{ false }}">
+<main data-screen-label="Personal Collection" style="width:100%;overflow-x:hidden;">
+
+  <!-- NAV -->
+  <header style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.82);backdrop-filter:saturate(1.5) blur(14px);-webkit-backdrop-filter:saturate(1.5) blur(14px);border-bottom:1px solid #ECECE8;">
+    <div style="max-width:1180px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <a href="#home" style="display:flex;align-items:center;gap:11px;text-decoration:none;">
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
+        <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:26px;">
+        <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
+        <a href="Home.dc.html#about" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
+        <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
+        <a href="#contact" style="display:inline-flex;align-items:center;gap:8px;text-decoration:none;background:#0B0B0C;color:#fff;padding:9px 16px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;" style-hover="background:#2A2A2A;">
+          <span style="width:6px;height:6px;border-radius:50%;background:#22C55E;display:inline-block;"></span><span>Let’s talk</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HEADER -->
+  <section id="top" style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;">
+      <span style="background:#F0F0EC;color:#0B0B0C;padding:6px 13px;border-radius:999px;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;">Personal</span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#9A9AA0;">Concept · 3D · Film · Type</span>
+    </div>
+    <h1 style="font-family:'Archivo';font-weight:800;font-size:clamp(42px,6.4vw,80px);line-height:0.96;letter-spacing:-0.038em;margin:26px 0 0;max-width:18ch;color:#0B0B0C;">Self-directed work &amp; experiments.</h1>
+    <p style="font-family:'Geist';font-size:clamp(17px,1.5vw,20px);line-height:1.5;color:#4A4A50;max-width:62ch;margin:28px 0 0;text-wrap:pretty;">Craft with no brief... a passive DJ track-ID app, typographic poster studies, 3D and AI, original music, and a short film. The lab where new ideas and tools get tested first.</p>
+
+    <div style="margin-top:40px;background:#F5F5F2;border:1px solid #ECECE8;border-radius:20px;padding:22px 28px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Role</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Self-directed</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Timeline</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Ongoing</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Scope</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">Concept · 3D · Film · Type</div>
+      </div>
+      <div>
+        <div style="font-size:10px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#9A9AA0;">Disciplines</div>
+        <div style="font-family:'Archivo';font-weight:600;font-size:15px;margin-top:7px;color:#0B0B0C;">7 featured</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENTRY 01 -->
+  <section style="max-width:1180px;margin:0 auto;padding:8px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">01</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">TrackID App</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Recently designed and launched passive DJ track-identification iOS app that listens at a venue and logs every track. Coded with Ai.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+      {{ tiles0 }}
+      <sc-if value="{{ editMode }}">
+        <button onClick="{{ add0 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+        <button onClick="{{ addVid0 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add video</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ENTRY 02 -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">02</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Posters</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Typographic poster studies.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+      {{ tiles1 }}
+      <sc-if value="{{ editMode }}">
+        <button onClick="{{ add1 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+        <button onClick="{{ addVid1 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add video</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ENTRY 03 -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">03</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Illustration</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Pencil and character studies.</p>
+    </div>
+    <div id="pr-illus-grid" data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+      <image-slot free="" id="pr-2-0" shape="rounded" radius="20" placeholder="Graphite study" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="pr-2-1" shape="rounded" radius="20" placeholder="Figure with umbrella" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="pr-2-2" shape="rounded" radius="20" placeholder="Character study" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="pr-2-3" shape="rounded" radius="20" placeholder="Object study" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="pr-2-4" shape="rounded" radius="20" placeholder="Seated figure" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+      <image-slot free="" id="pr-2-5" shape="rounded" radius="20" placeholder="Plant: painted" style="grid-column:span 2;grid-row:span 2;width:100%;height:100%;"></image-slot>
+
+      <sc-for list="{{ illusExtra }}" as="t" hint-placeholder-count="0">
+        <div style="position:relative;grid-column:span 2;grid-row:span 2;">
+          <image-slot free="" id="{{ t.id }}" shape="rounded" radius="20" placeholder="Illustration" style="width:100%;height:100%;display:block;"></image-slot>
+          <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+            <button onClick="{{ t.remove }}" title="Remove tile" style="position:absolute;top:10px;right:10px;z-index:5;width:30px;height:30px;border:none;border-radius:50%;background:rgba(11,11,12,0.82);color:#fff;font-size:15px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;">✕</button>
+          </sc-if>
+        </div>
+      </sc-for>
+      <sc-if value="{{ editMode }}" hint-placeholder-val="{{ true }}">
+        <button onClick="{{ addIllus }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ENTRY 04 -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">04</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Arrakis Network Brand System</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Brand identity and system.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+      {{ tiles3 }}
+      <sc-if value="{{ editMode }}">
+        <button onClick="{{ add3 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+        <button onClick="{{ addVid3 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add video</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ENTRY 05 -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">05</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">3D + AI</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Experiments in 3D and Ai.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+      {{ tiles4 }}
+      <sc-if value="{{ editMode }}">
+        <button onClick="{{ add4 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+        <button onClick="{{ addVid4 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add video</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ENTRY 06 -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">06</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Music</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Tell Apart: original tracks. Surface · Teak Pulls · Focus Forget.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+      {{ tiles5 }}
+      <sc-if value="{{ editMode }}">
+        <button onClick="{{ add5 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+        <button onClick="{{ addVid5 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add video</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- ENTRY 07 -->
+  <section style="max-width:1180px;margin:0 auto;padding:64px 24px 0;">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:24px;flex-wrap:wrap;margin:0 0 22px;">
+      <div style="display:flex;align-items:baseline;gap:16px;">
+        <span style="font-family:'Geist';font-size:13px;font-weight:600;color:#B4B4B8;font-variant-numeric:tabular-nums;">07</span>
+        <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(24px,3vw,38px);letter-spacing:-0.03em;margin:0;color:#0B0B0C;">Video</h2>
+      </div>
+      <p style="font-family:'Geist';font-size:14px;line-height:1.5;color:#74747A;max-width:40ch;margin:0;">Short promotional videos and a short film.</p>
+    </div>
+    <div data-tile-grid="" style="display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:172px;gap:16px;grid-auto-flow:dense;">
+      {{ tiles6 }}
+      <sc-if value="{{ editMode }}">
+        <button onClick="{{ add6 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add tile</button>
+        <button onClick="{{ addVid6 }}" style="grid-column:span 2;grid-row:span 2;border:2px dashed #D4D4CE;background:#FBFBF9;border-radius:20px;color:#74747A;font-family:'Geist';font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" style-hover="border-color:#0B0B0C;color:#0B0B0C;">+ Add video</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section style="max-width:1180px;margin:72px auto 0;padding:0 24px;">
+    <a href="#kraken" style="display:flex;align-items:center;justify-content:space-between;gap:24px;text-decoration:none;border-top:1px solid #ECECE8;border-bottom:1px solid #ECECE8;padding:40px 0;color:#0B0B0C;" style-hover="opacity:0.55;">
+      <span style="font-size:11px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#9A9AA0;">Next project</span>
+      <span style="font-family:'Archivo';font-weight:800;font-size:clamp(34px,5.5vw,64px);letter-spacing:-0.03em;line-height:1;display:flex;align-items:center;gap:18px;"><span>Kraken</span> <span style="font-size:0.8em;">→</span></span>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact" style="max-width:1180px;margin:0 auto;padding:56px 24px 64px;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:32px;flex-wrap:wrap;">
+      <div>
+        <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:34px;width:auto;display:block;">
+        <div style="font-family:'Archivo';font-weight:800;font-size:22px;letter-spacing:-0.02em;margin-top:16px;color:#0B0B0C;">Kristofor Syphers</div>
+        <div style="font-family:'Geist';font-size:14px;color:#74747A;margin-top:4px;">Graphic design · Illustration · Motion · Brand</div>
+      </div>
+    </div>
+    <div style="margin-top:40px;font-size:12px;color:#B4B4B8;">© 2026 Kristofor Syphers. Built for the love of it.</div>
+  </footer>
+
+  <!-- EDIT TOGGLE -->
+  <sc-if value="{{ showEdit }}" hint-placeholder-val="{{ false }}">
+  <button onClick="{{ toggleEdit }}" style="position:fixed;right:20px;bottom:20px;z-index:100;display:inline-flex;align-items:center;gap:9px;background:#0B0B0C;color:#fff;border:none;padding:12px 18px;border-radius:999px;font-family:'Geist';font-size:13px;font-weight:600;letter-spacing:0.02em;cursor:pointer;box-shadow:0 8px 24px rgba(0,0,0,0.18);" style-hover="background:#2A2A2A;">
+    <span style="width:7px;height:7px;border-radius:50%;background:{{ dotColor }};"></span>{{ editLabel }}
+  </button>
+  </sc-if>
+
+</main>
+</sc-if>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  PAGES = ['home','kraken','flipster','boh','dataxu','freelance','personal'];
+  CS_STORE = { kraken:'ks-kraken-extra-tiles-v1', flipster:'ks-flipster-extra-tiles-v1', boh:'ks-boh-extra-tiles-v1', dataxu:'ks-dataxu-extra-tiles-v1', freelance:'ks-freelance-extra-tiles-v1' };
+  HOME_STORE = 'ks-home-extra-tiles-v1';
+  PERSONAL_STORE = 'ks-personal-grids-v1';
+  PERSONAL_ILLUS = 'ks-personal-illus-extra-v1';
+  PERSONAL_ORDER = 'ks-personal-grids-v1-order';
+  SIZES = [{c:2,r:2},{c:3,r:2},{c:2,r:3},{c:3,r:3},{c:6,r:2}];
+  PKEYS = ['trackid','posters','illustration','arrakis','3dai','music','video'];
+  state = { page:'home', editMode:false, csExtra:{}, homeExtra:[], sections:null, illusExtra:[] };
+
+  componentDidMount(){
+    var self=this;
+    this._seedBaked();
+    this._applyHash();
+    window.addEventListener('hashchange', function(){ self._applyHash(); });
+    var csExtra={};
+    Object.keys(this.CS_STORE).forEach(function(p){ try{ var r=localStorage.getItem(self.CS_STORE[p]); csExtra[p]=r?(JSON.parse(r)||{}):{}; }catch(e){ csExtra[p]={}; } });
+    var homeExtra=[]; try{ var rh=localStorage.getItem(this.HOME_STORE); if(rh) homeExtra=JSON.parse(rh)||[]; }catch(e){}
+    var sections=null; try{ var rp=localStorage.getItem(this.PERSONAL_STORE); if(rp) sections=JSON.parse(rp); }catch(e){}
+    if(!Array.isArray(sections)) sections=this.personalDefaults();
+    sections=sections.map(function(sec){ return sec.key!=='music'?sec:Object.assign({},sec,{tiles:sec.tiles.map(function(t){return t.video?t:Object.assign({},t,{video:true});})}); });
+    var illusExtra=[]; try{ var ri=localStorage.getItem(this.PERSONAL_ILLUS); if(ri) illusExtra=JSON.parse(ri)||[]; }catch(e){}
+    this.setState({ csExtra:csExtra, homeExtra:homeExtra, sections:sections, illusExtra:illusExtra });
+    this._syncReorder();
+  }
+  componentDidUpdate(){ this._syncReorder(); }
+  _seedBaked(){
+    // Bake step: seed localStorage with the exact layout (order/size/hidden,
+    // extra-tile lists, personal grids, video embeds) captured from the
+    // editor, so a public visitor with empty localStorage sees the same
+    // layout. Never overwrites a key that's already set (so owner edits and
+    // returning visitors keep their own state).
+    try {
+      var req = new XMLHttpRequest();
+      req.open('GET', 'assets/baked-layout.json', false);
+      req.send(null);
+      if (req.status === 200 || req.status === 0) {
+        var baked = JSON.parse(req.responseText);
+        for (var k in baked) {
+          if (localStorage.getItem(k) == null) {
+            try { localStorage.setItem(k, baked[k]); } catch (e) {}
+          }
+        }
+      }
+    } catch (e) {}
+  }
+  _applyHash(){
+    var h=(location.hash||'').replace('#','').toLowerCase();
+    if(this.PAGES.indexOf(h)>=0 && h!==this.state.page){ this.setState({page:h, editMode:false}); try{window.scrollTo(0,0);}catch(e){} }
+  }
+  go(p){ location.hash='#'+p; }
+  _syncReorder(){
+    var self=this, page=this.state.page;
+    var run=function(){
+      if(!window.TileReorder) return;
+      if(page==='personal'){
+        window.TileReorder.sync({ storeKey:self.PERSONAL_ORDER, editing:self.state.editMode,
+          onDuplicate:function(gi,tileEl,grid){ if(grid&&grid.id==='pr-illus-grid') self._duplicateIllus(gi,tileEl); },
+          onDelete:function(gi,tileEl,grid){ if(grid&&grid.id==='pr-illus-grid') self._deleteIllus(gi,tileEl); } });
+      } else if(page==='home'){
+        window.TileReorder.sync({ storeKey:self.HOME_STORE+'-order', editing:self.state.editMode,
+          onDuplicate:function(gi,tileEl){ self._homeDuplicate(gi,tileEl); }, onDelete:function(gi,tileEl){ self._homeDelete(gi,tileEl); } });
+      } else if(self.CS_STORE[page]){
+        window.TileReorder.sync({ storeKey:self.CS_STORE[page]+'-order', editing:self.state.editMode,
+          onDuplicate:function(gi,tileEl){ self._csDuplicate(page,gi,tileEl); }, onDelete:function(gi,tileEl){ self._csDelete(page,gi,tileEl); } });
+      } else { window.TileReorder.sync({ editing:false }); }
+    };
+    run(); setTimeout(run,60);
+  }
+  _slotId(tileEl){ if(!tileEl)return null; if(tileEl.tagName==='IMAGE-SLOT'||tileEl.tagName==='VIDEO-SLOT')return tileEl.id; var s=tileEl.querySelector('image-slot[id], video-slot[id], [id]'); return s&&s.id; }
+  _csSave(page,extra){ var cs=Object.assign({},this.state.csExtra); cs[page]=extra; this.setState({csExtra:cs}); try{localStorage.setItem(this.CS_STORE[page],JSON.stringify(extra));}catch(e){} }
+  _csAdd(page,k,video){ var e=Object.assign({},(this.state.csExtra[page]||{})); var id=this.CS_STORE[page].replace(/[^a-z0-9]/gi,'')+'-'+k+'-'+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36); e[k]=[].concat(e[k]||[],[{id:id,video:!!video}]); this._csSave(page,e); return id; }
+  _csRemove(page,k,id){ var e=Object.assign({},(this.state.csExtra[page]||{})); e[k]=(e[k]||[]).filter(function(t){return t.id!==id;}); this._csSave(page,e); }
+  _csDuplicate(page,gi,tileEl){ if(!tileEl)return; var isVideo=tileEl.tagName==='VIDEO-SLOT'||!!tileEl.querySelector('video-slot[id]'); var srcId=this._slotId(tileEl); var dstId=this._csAdd(page,String(gi),isVideo); if(srcId&&dstId){ if(isVideo&&window.VideoSlotStore){try{window.VideoSlotStore.copy(srcId,dstId);}catch(e){}} else if(window.ImageSlotStore){try{window.ImageSlotStore.copy(srcId,dstId);}catch(e){}} } if(dstId&&window.TileReorder&&window.TileReorder.matchSize){try{window.TileReorder.matchSize(gi,tileEl,dstId);}catch(e){}} }
+  _csDelete(page,gi,tileEl){ var id=this._slotId(tileEl); var k=String(gi); var list=(this.state.csExtra[page]||{})[k]||[]; if(id&&list.some(function(t){return t.id===id;})){ this._csRemove(page,k,id);} else if(window.TileReorder&&window.TileReorder.toggleHidden){try{window.TileReorder.toggleHidden(gi,tileEl);}catch(e){}} }
+  _homeSave(extra){ this.setState({homeExtra:extra}); try{localStorage.setItem(this.HOME_STORE,JSON.stringify(extra));}catch(e){} }
+  _homeAdd(){ var id='home-extra-'+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36); this._homeSave([].concat(this.state.homeExtra||[],[{id:id}])); return id; }
+  _homeRemove(id){ this._homeSave((this.state.homeExtra||[]).filter(function(t){return t.id!==id;})); }
+  _homeDuplicate(gi,tileEl){ if(!tileEl)return; var srcId=this._slotId(tileEl); var dstId=this._homeAdd(); if(srcId&&dstId&&window.ImageSlotStore){try{window.ImageSlotStore.copy(srcId,dstId);}catch(e){}} if(dstId&&window.TileReorder&&window.TileReorder.matchSize){try{window.TileReorder.matchSize(gi,tileEl,dstId);}catch(e){}} }
+  _homeDelete(gi,tileEl){ var id=this._slotId(tileEl); var list=this.state.homeExtra||[]; if(id&&list.some(function(t){return t.id===id;})){this._homeRemove(id);}else if(window.TileReorder&&window.TileReorder.toggleHidden){try{window.TileReorder.toggleHidden(gi,tileEl);}catch(e){}} }
+  clearStatement(page){ var map={kraken:'kr-statement',flipster:'flip-statement',boh:'boh-statement',dataxu:'dx-statement'}; var s=document.getElementById(map[page]); var b=s&&s.shadowRoot&&s.shadowRoot.querySelector('[data-act="clear"]'); if(b)b.click(); }
+  personalDefaults(){ return [{"key":"trackid","tiles":[{"id":"pr-0-0","c":3,"r":2,"placeholder":"TrackID: in hand"},{"id":"pr-0-1","c":3,"r":2,"placeholder":"TrackID: on desk"},{"id":"pr-0-2","c":6,"r":2,"placeholder":"App screens: Listen · Log · Feed · Now Playing · Profile · Export"}]},{"key":"posters","tiles":[{"id":"pr-1-0","c":2,"r":3,"placeholder":"Women in Tech Conference"},{"id":"pr-1-1","c":2,"r":3,"placeholder":"Blockchain Conference"},{"id":"pr-1-2","c":2,"r":3,"placeholder":"Diversity, Inclusion & Equity"},{"id":"pr-1-3","c":3,"r":3,"placeholder":"Typography Workshop"},{"id":"pr-1-4","c":3,"r":3,"placeholder":"National Park / Camping"}]},{"key":"illustration","tiles":[{"id":"pr-2-0","c":2,"r":2,"placeholder":"Graphite study"},{"id":"pr-2-1","c":2,"r":2,"placeholder":"Figure with umbrella"},{"id":"pr-2-2","c":2,"r":2,"placeholder":"Character study"},{"id":"pr-2-3","c":2,"r":2,"placeholder":"Object study"},{"id":"pr-2-4","c":2,"r":2,"placeholder":"Seated figure"},{"id":"pr-2-5","c":2,"r":2,"placeholder":"Plant: painted"}]},{"key":"arrakis","tiles":[{"id":"pr-3-0","c":6,"r":2,"placeholder":"Arrakis: logo on gradient"},{"id":"pr-3-1","c":3,"r":2,"placeholder":"Brand mark"},{"id":"pr-3-2","c":3,"r":2,"placeholder":"System application"}]},{"key":"3dai","tiles":[{"id":"pr-4-0","c":6,"r":3,"placeholder":"“Wen Moon?”: 3D render","video":true}]},{"key":"music","tiles":[{"id":"pr-5-0","c":6,"r":1,"placeholder":"Tell Apart — drop cover / video, or embed a track link","video":true}]},{"key":"video","tiles":[{"id":"pr-6-0","c":3,"r":2,"placeholder":"Runner: trailer","video":true},{"id":"pr-6-1","c":3,"r":2,"placeholder":"Runner: film","video":true}]}]; }
+  _personalSave(sections){ this.setState({sections:sections}); try{localStorage.setItem(this.PERSONAL_STORE,JSON.stringify(sections));}catch(e){} }
+  _saveIllus(list){ this.setState({illusExtra:list}); try{localStorage.setItem(this.PERSONAL_ILLUS,JSON.stringify(list));}catch(e){} }
+  _addIllus(){ var id='pr-2-n'+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36); this._saveIllus([].concat(this.state.illusExtra||[],[{id:id}])); return id; }
+  _removeIllus(id){ this._saveIllus((this.state.illusExtra||[]).filter(function(t){return t.id!==id;})); }
+  _duplicateIllus(gi,tileEl){ if(!tileEl)return; var srcId=this._slotId(tileEl); var dstId=this._addIllus(); if(srcId&&dstId&&window.ImageSlotStore){try{window.ImageSlotStore.copy(srcId,dstId);}catch(e){}} if(dstId&&window.TileReorder&&window.TileReorder.matchSize){try{window.TileReorder.matchSize(gi,tileEl,dstId);}catch(e){}} }
+  _deleteIllus(gi,tileEl){ var id=this._slotId(tileEl); var list=this.state.illusExtra||[]; if(id&&list.some(function(t){return t.id===id;})){this._removeIllus(id);}else if(window.TileReorder&&window.TileReorder.toggleHidden){try{window.TileReorder.toggleHidden(gi,tileEl);}catch(e){}} }
+  addTile(key){ var sections=this.state.sections.map(function(sec){ if(sec.key!==key)return sec; var id=key+'-n'+Date.now().toString(36); return Object.assign({},sec,{tiles:[].concat(sec.tiles,[{id:id,c:2,r:2,placeholder:'New tile'}])}); }); this._personalSave(sections); }
+  addVideoTile(key){ var sections=this.state.sections.map(function(sec){ if(sec.key!==key)return sec; var id=key+'-v'+Date.now().toString(36); return Object.assign({},sec,{tiles:[].concat(sec.tiles,[{id:id,c:3,r:2,placeholder:'Drop your video (MP4)',video:true}])}); }); this._personalSave(sections); }
+  removeTile(key,id){ var sections=this.state.sections.map(function(sec){ return sec.key!==key?sec:Object.assign({},sec,{tiles:sec.tiles.filter(function(t){return t.id!==id;})}); }); this._personalSave(sections); }
+  resizeTile(key,id){ var self=this; var sections=this.state.sections.map(function(sec){ if(sec.key!==key)return sec; return Object.assign({},sec,{tiles:sec.tiles.map(function(t){ if(t.id!==id)return t; var idx=self.SIZES.findIndex(function(s){return s.c===t.c&&s.r===t.r;}); idx=(idx+1)%self.SIZES.length; return Object.assign({},t,{c:self.SIZES[idx].c,r:self.SIZES[idx].r}); })}); }); this._personalSave(sections); }
+  ctrlBtn(label,onClick,title){ return React.createElement('button',{key:title,onClick:onClick,title:title,style:{width:28,height:28,borderRadius:'50%',border:'none',cursor:'pointer',background:'rgba(11,11,12,0.82)',color:'#fff',fontSize:14,lineHeight:'28px',padding:0,display:'flex',alignItems:'center',justifyContent:'center',backdropFilter:'blur(4px)',boxShadow:'0 2px 8px rgba(0,0,0,0.25)'}},label); }
+  controlsEl(key,t){ var self=this; return React.createElement('div',{key:'ctrl',style:{position:'absolute',top:8,right:8,display:'flex',gap:6,zIndex:5}},[ this.ctrlBtn('⧉',function(){self.duplicateTile(key,t.id);},'Duplicate'), this.ctrlBtn('⤢',function(){self.resizeTile(key,t.id);},'Resize'), this.ctrlBtn('✕',function(){self.removeTile(key,t.id);},'Remove') ]); }
+  duplicateTile(key,id){ var newId=null,wasVideo=false; var sections=this.state.sections.map(function(sec){ if(sec.key!==key)return sec; var idx=sec.tiles.findIndex(function(t){return t.id===id;}); if(idx<0)return sec; var src=sec.tiles[idx]; wasVideo=!!src.video; newId=key+'-c'+Date.now().toString(36)+Math.floor(Math.random()*1e4).toString(36); var clone=Object.assign({},src,{id:newId}); var tiles=sec.tiles.slice(); tiles.splice(idx+1,0,clone); return Object.assign({},sec,{tiles:tiles}); }); this._personalSave(sections); setTimeout(function(){ if(!newId)return; if(wasVideo){ if(window.VideoSlotStore){try{window.VideoSlotStore.copy(id,newId);}catch(e){}} } else if(window.ImageSlotStore){try{window.ImageSlotStore.copy(id,newId);}catch(e){}} },90); }
+  videoOverlay(){ return React.createElement('div',{key:'ov',style:{position:'absolute',inset:0,display:'flex',alignItems:'center',justifyContent:'center',pointerEvents:'none'}},React.createElement('div',{style:{width:70,height:70,borderRadius:'50%',background:'#0B0B0C',boxShadow:'0 10px 30px rgba(0,0,0,0.3)',display:'flex',alignItems:'center',justifyContent:'center'}},React.createElement('div',{style:{width:0,height:0,borderLeft:'20px solid #fff',borderTop:'12px solid transparent',borderBottom:'12px solid transparent',marginLeft:5}}))); }
+  tileEl(key,t,editMode){ var kids=[ t.video?React.createElement('video-slot',{key:'slot',id:t.id,src:'assets/videos/'+t.id+'.mp4',radius:'20',loop:true,autoplay:true,muted:true,placeholder:t.placeholder||'Drop your video (MP4)',style:{width:'100%',height:'100%',display:'block'}}):React.createElement('image-slot',{key:'slot',id:t.id,src:'assets/images/'+t.id+'.webp',shape:'rounded',radius:'20',placeholder:t.placeholder||'',style:{width:'100%',height:'100%',display:'block'}}) ]; if(editMode)kids.push(this.controlsEl(key,t)); return React.createElement('div',{key:t.id,style:{position:'relative',gridColumn:'span '+t.c,gridRow:'span '+t.r}},kids); }
+  renderVals(){
+    var self=this, page=this.state.page, editMode=this.state.editMode;
+    var out={ page:page, editMode:editMode,
+      showEdit: !!(window.omelette || /[?&]edit=1/.test(location.search)),
+      editLabel: editMode?'Done editing':(page==='personal'?'Edit grids':'Edit tiles'),
+      dotColor: editMode?'#22C55E':'#74747A',
+      toggleEdit: function(){ self.setState(function(s){return {editMode:!s.editMode};}); },
+      clearStatement: function(){ self.clearStatement(page); },
+      isHome:page==='home', isKraken:page==='kraken', isFlipster:page==='flipster', isBoh:page==='boh', isDataxu:page==='dataxu', isFreelance:page==='freelance', isPersonal:page==='personal',
+      goHome:function(){self.go('home');}, goKraken:function(){self.go('kraken');}, goFlipster:function(){self.go('flipster');}, goBoh:function(){self.go('boh');}, goDataxu:function(){self.go('dataxu');}, goFreelance:function(){self.go('freelance');}, goPersonal:function(){self.go('personal');}
+    };
+    if(this.CS_STORE[page]){
+      var ex=this.state.csExtra[page]||{};
+      for(var i=0;i<8;i++){ (function(i){ var k=String(i);
+        out['extra'+i]=(ex[k]||[]).map(function(t){ return {id:t.id, video:!!t.video, notVideo:!t.video, fit:t.fit||'cover', remove:function(){self._csRemove(page,k,t.id);}}; });
+        out['add'+i]=function(){ self._csAdd(page,k); };
+        out['addVid'+i]=function(){ self._csAdd(page,k,true); };
+      })(i); }
+    }
+    if(page==='home'){
+      out.addTile=function(){ self._homeAdd(); };
+      out.extraTiles=(this.state.homeExtra||[]).map(function(t){ return {id:t.id, remove:function(){self._homeRemove(t.id);}}; });
+    }
+    if(page==='personal'){
+      var list=this.state.sections||[]; var byKey={}; list.forEach(function(s){byKey[s.key]=s;});
+      out.addIllus=function(){ self._addIllus(); };
+      out.illusExtra=(this.state.illusExtra||[]).map(function(t){ return {id:t.id, remove:function(){self._removeIllus(t.id);}}; });
+      this.PKEYS.forEach(function(key,i){ var sec=byKey[key]; out['tiles'+i]=sec?sec.tiles.map(function(t){return self.tileEl(key,t,editMode);}):[]; out['add'+i]=function(){self.addTile(key);}; out['addVid'+i]=function(){self.addVideoTile(key);}; });
+    }
+    return out;
+  }
+}
+</script>
+</body>
+</html>
