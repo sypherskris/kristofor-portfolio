@@ -84,34 +84,6 @@
   /* Illustration section: transparent empty-tile background (no grey fill) */
   #pr-illus-grid image-slot::part(frame){background:transparent;}
 
-/* ===== mobile responsive ===== */
-@media (max-width: 860px){
-  header nav.ks-nav{ display:none; }
-  header label.ks-hamburger{ display:flex !important; }
-  .ks-nav-toggle:checked ~ .ks-hamburger svg{ display:none; }
-  .ks-nav-toggle:checked ~ .ks-nav{
-    display:flex !important; flex-direction:column !important; align-items:flex-start !important;
-    gap:2px !important; position:fixed; top:58px; left:0; right:0; z-index:60;
-    background:#fff; padding:10px 24px 20px; border-bottom:1px solid #ECECE8;
-    box-shadow:0 14px 30px rgba(0,0,0,0.12);
-  }
-  .ks-nav-toggle:checked ~ .ks-nav a{ width:100%; padding:13px 0 !important; }
-
-  [data-tile-grid]{ display:flex !important; flex-direction:column !important; }
-  [data-tile-grid] > *{ width:100% !important; }
-  [data-tile-grid] > image-slot,
-  [data-tile-grid] > video-slot{ height:auto !important; aspect-ratio:4/3 !important; }
-  [data-tile-grid] > div[style*="position:relative"]{ height:auto !important; aspect-ratio:4/3 !important; }
-
-  div[style*="grid-template-columns:1.55fr 1fr"],
-  div[style*="grid-template-columns:1.4fr 1fr"],
-  div[style*="grid-template-columns:1.7fr 1fr 1fr"],
-  div[style*="grid-template-columns:repeat(4,1fr)"],
-  div[style*="grid-template-columns:repeat(5,1fr)"],
-  div[style*="grid-template-columns:1fr 1fr"]{
-    grid-template-columns:1fr !important;
-  }
-}
 </style>
 </helmet>
 
@@ -125,11 +97,7 @@
         <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
         <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
       </a>
-      <input type="checkbox" id="ks-navtoggle" class="ks-nav-toggle" style="display:none;">
-      <label for="ks-navtoggle" class="ks-hamburger" style="display:none;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;border-radius:10px;" style-hover="background:#F0F0EC;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
-      </label>
-      <nav class="ks-nav" style="display:flex;align-items:center;gap:26px;">
+      <nav style="display:flex;align-items:center;gap:26px;">
         <a href="#work" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
         <a href="#about" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
         <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
@@ -322,11 +290,7 @@
         <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
         <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
       </a>
-      <input type="checkbox" id="ks-navtoggle" class="ks-nav-toggle" style="display:none;">
-      <label for="ks-navtoggle" class="ks-hamburger" style="display:none;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;border-radius:10px;" style-hover="background:#F0F0EC;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
-      </label>
-      <nav class="ks-nav" style="display:flex;align-items:center;gap:26px;">
+      <nav style="display:flex;align-items:center;gap:26px;">
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
         <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
@@ -559,11 +523,7 @@
         <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
         <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
       </a>
-      <input type="checkbox" id="ks-navtoggle" class="ks-nav-toggle" style="display:none;">
-      <label for="ks-navtoggle" class="ks-hamburger" style="display:none;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;border-radius:10px;" style-hover="background:#F0F0EC;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
-      </label>
-      <nav class="ks-nav" style="display:flex;align-items:center;gap:26px;">
+      <nav style="display:flex;align-items:center;gap:26px;">
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
         <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
@@ -877,11 +837,7 @@
         <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
         <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
       </a>
-      <input type="checkbox" id="ks-navtoggle" class="ks-nav-toggle" style="display:none;">
-      <label for="ks-navtoggle" class="ks-hamburger" style="display:none;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;border-radius:10px;" style-hover="background:#F0F0EC;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
-      </label>
-      <nav class="ks-nav" style="display:flex;align-items:center;gap:26px;">
+      <nav style="display:flex;align-items:center;gap:26px;">
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
         <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
@@ -1107,11 +1063,7 @@
         <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
         <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
       </a>
-      <input type="checkbox" id="ks-navtoggle" class="ks-nav-toggle" style="display:none;">
-      <label for="ks-navtoggle" class="ks-hamburger" style="display:none;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;border-radius:10px;" style-hover="background:#F0F0EC;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
-      </label>
-      <nav class="ks-nav" style="display:flex;align-items:center;gap:26px;">
+      <nav style="display:flex;align-items:center;gap:26px;">
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
         <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
@@ -1374,11 +1326,7 @@
         <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
         <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
       </a>
-      <input type="checkbox" id="ks-navtoggle" class="ks-nav-toggle" style="display:none;">
-      <label for="ks-navtoggle" class="ks-hamburger" style="display:none;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;border-radius:10px;" style-hover="background:#F0F0EC;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
-      </label>
-      <nav class="ks-nav" style="display:flex;align-items:center;gap:26px;">
+      <nav style="display:flex;align-items:center;gap:26px;">
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
         <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
@@ -1648,11 +1596,7 @@
         <img src="assets/ks-monogram.png" alt="Kristofor Syphers monogram" style="height:23px;width:auto;display:block;">
         <span style="font-family:'Archivo';font-weight:800;font-size:14px;letter-spacing:-0.01em;color:#0B0B0C;">Kristofor Syphers</span>
       </a>
-      <input type="checkbox" id="ks-navtoggle" class="ks-nav-toggle" style="display:none;">
-      <label for="ks-navtoggle" class="ks-hamburger" style="display:none;width:38px;height:38px;align-items:center;justify-content:center;cursor:pointer;border-radius:10px;" style-hover="background:#F0F0EC;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B0B0C" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"></path></svg>
-      </label>
-      <nav class="ks-nav" style="display:flex;align-items:center;gap:26px;">
+      <nav style="display:flex;align-items:center;gap:26px;">
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Work</a>
         <a href="#home" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">About</a>
         <a href="#contact" style="text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;" style-hover="color:#0B0B0C;">Contact</a>
