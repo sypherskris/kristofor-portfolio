@@ -257,7 +257,7 @@
       <div style="position:relative;pointer-events:none;">
         <h2 style="font-family:'Archivo';font-weight:800;font-size:clamp(32px,5vw,62px);line-height:1.0;letter-spacing:-0.035em;margin:0;max-width:16ch;pointer-events:auto;">Let’s make something worth sharing.</h2>
         <p style="font-family:'Geist';font-size:clamp(16px,1.6vw,19px);line-height:1.5;color:rgba(255,255,255,0.78);margin:22px 0 0;max-width:48ch;pointer-events:auto;">Open to full-time roles and select freelance. Tell me what you’re building.</p>
-        <a href="/cdn-cgi/l/email-protection#afd7d6d5dcd6dfc7cadddcefc8c2cec6c381ccc0c2" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:#fff;color:#0B0B0C;padding:15px 26px;border-radius:999px;font-family:'Archivo';font-weight:700;font-size:16px;margin-top:32px;pointer-events:auto;" style-hover="background:#EDEDED;"><span><span class="__cf_email__" data-cfemail="bac2c3c0c9c3cad2dfc8c9faddd7dbd3d694d9d5d7">[email&#160;protected]</span></span> <span>→</span></a>
+        <a id="contact-email-link" href="#" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:#fff;color:#0B0B0C;padding:15px 26px;border-radius:999px;font-family:'Archivo';font-weight:700;font-size:16px;margin-top:32px;pointer-events:auto;" style-hover="background:#EDEDED;"><span>Email me</span> <span>→</span></a>
       </div>
     </div>
   </section>
@@ -1806,7 +1806,7 @@
 </sc-if>
 
 </x-dc>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script>
+<script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   PAGES = ['home','kraken','flipster','boh','dataxu','freelance','personal'];
   CS_STORE = { kraken:'ks-kraken-extra-tiles-v1', flipster:'ks-flipster-extra-tiles-v1', boh:'ks-boh-extra-tiles-v1', dataxu:'ks-dataxu-extra-tiles-v1', freelance:'ks-freelance-extra-tiles-v1' };
@@ -1820,6 +1820,7 @@ class Component extends DCLogic {
 
   componentDidMount(){
     var self=this;
+    this._fixEmailLink();
     this._seedBaked();
     this._applyHash();
     window.addEventListener('hashchange', function(){ self._applyHash(); });
@@ -1853,6 +1854,29 @@ class Component extends DCLogic {
         }
       }
     } catch (e) {}
+  }
+  // Rebuilds the contact email link from parts at runtime (never assembled
+  // as a literal string in the source) and force-corrects href + label on
+  // every render. This makes the button immune to any tool upstream of the
+  // live page (security software, network filters, etc.) that scans static
+  // HTML for plaintext email addresses and swaps them for a "protected"
+  // placeholder -- there is no literal address for such a scanner to find.
+  _fixEmailLink(){
+    var user = ['x','y','z','s','y','p','h','e','r','s'].join('');
+    var domain = ['g','m','a','i','l'].join('') + '.' + 'com';
+    var email = user + '@' + domain;
+    var fix = function(){
+      var a = document.getElementById('contact-email-link');
+      if (!a) return;
+      a.setAttribute('href', 'mailto:' + email);
+      var first = a.querySelector('span');
+      if (first) first.textContent = email;
+    };
+    fix();
+    // Re-apply shortly after and on an interval in case something mutates
+    // the DOM after initial mount.
+    setTimeout(fix, 300);
+    setInterval(fix, 4000);
   }
   _applyHash(){
     var h=(location.hash||'').replace('#','').toLowerCase();
