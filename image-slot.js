@@ -985,12 +985,18 @@
       this._spill.style.left = l; this._spill.style.top = t;
     }
 
+    static _narrow() { return window.matchMedia('(max-width: 900px)').matches; }
+
     _commitView() {
       const v = { s: this._view.s, x: this._view.x, y: this._view.y };
       if (this._userUrl) v.u = this._userUrl;
       // Framing-only (no u) persists too so an author-src slot remembers its
       // crop; clearing the sidecar still falls through to src=.
-      if (this.id) setSlot(this.id, v);
+      if (this.id && ImageSlot._narrow()) {
+        // Narrow (phone) viewport: framing lives in its own key so it never
+        // moves the desktop crop. The image itself stays on the main key.
+        setSlot(this.id + '@m', { s: v.s, x: v.x, y: v.y });
+      } else if (this.id) setSlot(this.id, v);
       else { this._local = v; }
     }
 
@@ -1024,6 +1030,13 @@
       // (Claude wrote it into the HTML) so it passes through unchanged.
       let stored = this.id ? getSlot(this.id) : this._local;
       if (stored && stored.u && !/^data:image\//i.test(stored.u)) stored = null;
+      if (this.id && ImageSlot._narrow()) {
+        const m = getSlot(this.id + '@m');
+        if (m && Number.isFinite(m.s)) stored = Object.assign({}, stored || {}, { s: m.s, x: m.x, y: m.y });
+        // Grid tiles change shape on phones, so desktop offsets land off-centre.
+        // Without a phone-specific crop, fall back to a centred cover fit.
+        else if (this.closest('[data-tile-grid]')) stored = Object.assign({}, stored || {}, { s: 1, x: 0, y: 0 });
+      }
       const srcAttr = this.getAttribute('src') || '';
       this._userUrl = (stored && stored.u) || null;
       const url = this._userUrl || srcAttr;
@@ -1063,4 +1076,12 @@
   if (!customElements.get('image-slot')) {
     customElements.define('image-slot', ImageSlot);
   }
+})();
+
+;(function(){
+  try {
+    var mq = window.matchMedia('(max-width: 900px)');
+    var h = function(){ document.querySelectorAll('image-slot').forEach(function(el){ if (el._render && !el.hasAttribute('data-reframe')) el._render(); }); };
+    mq.addEventListener ? mq.addEventListener('change', h) : mq.addListener(h);
+  } catch(e){}
 })();

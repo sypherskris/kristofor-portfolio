@@ -191,7 +191,8 @@
     '.ctl button:hover{background:rgba(0,0,0,.8)}' +
     // hide the empty-state on a published page (no editor) so it isn't an
     // interactive dropzone for visitors — show only if there's genuinely no video.
-    ':host(:not([data-editable]):not([data-filled])) .ring{opacity:.4}';
+    ':host(:not([data-editable]):not([data-filled])) .ring{opacity:.4}' +
+    ':host([data-filled]) .ring{display:none}';
 
   const ICON =
     '<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
