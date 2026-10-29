@@ -108,6 +108,7 @@ html[data-dx="off"] [data-tile-grid] > div:has(> #home-personal) > a > div > div
   .ks-nav-toggle:checked ~ .ks-nav{
     display:flex !important; flex-direction:column !important; align-items:flex-start !important;
     gap:2px !important; position:fixed; top:58px; left:0; right:0; z-index:60;
+    max-height:calc(100vh - 58px); overflow-y:auto;
     background:#fff; padding:10px 20px 20px; border-bottom:1px solid #ECECE8;
     box-shadow:0 14px 30px rgba(0,0,0,0.12);
   }
@@ -393,6 +394,17 @@ html[data-dx="off"] [data-tile-grid] > div:has(> #home-personal) > a > div > div
         </a>
       </nav>
     </div>
+      <div style="border-top:1px solid #ECECE8;">
+      <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:28px;overflow-x:auto;scrollbar-width:none;">
+        <span style="flex:none;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#B4B4B8;">Case studies</span>
+        <a href="#flipster" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Flipster</a>
+        <a href="#kraken" aria-current="page" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#0B0B0C;padding:13px 0 11px;border-bottom:2px solid #0B0B0C;">Kraken</a>
+        <a href="#boh" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Bank of Hawaii</a>
+        <sc-if value="{{ showDataxu }}" hint-placeholder-val="{{ false }}"><a href="#dataxu" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Dataxu</a></sc-if>
+        <a href="#freelance" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Freelance</a>
+        <a href="#personal" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Personal</a>
+      </div>
+    </div>
   </header>
 
   <!-- CASE HEADER -->
@@ -630,6 +642,17 @@ html[data-dx="off"] [data-tile-grid] > div:has(> #home-personal) > a > div > div
           <span style="width:6px;height:6px;border-radius:50%;background:#6CF69B;display:inline-block;"></span><span>Let’s talk</span>
         </a>
       </nav>
+    </div>
+      <div style="border-top:1px solid #ECECE8;">
+      <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:28px;overflow-x:auto;scrollbar-width:none;">
+        <span style="flex:none;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#B4B4B8;">Case studies</span>
+        <a href="#flipster" aria-current="page" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#0B0B0C;padding:13px 0 11px;border-bottom:2px solid #0B0B0C;">Flipster</a>
+        <a href="#kraken" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Kraken</a>
+        <a href="#boh" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Bank of Hawaii</a>
+        <sc-if value="{{ showDataxu }}" hint-placeholder-val="{{ false }}"><a href="#dataxu" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Dataxu</a></sc-if>
+        <a href="#freelance" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Freelance</a>
+        <a href="#personal" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Personal</a>
+      </div>
     </div>
   </header>
 
@@ -950,6 +973,17 @@ html[data-dx="off"] [data-tile-grid] > div:has(> #home-personal) > a > div > div
         </a>
       </nav>
     </div>
+      <div style="border-top:1px solid #ECECE8;">
+      <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:28px;overflow-x:auto;scrollbar-width:none;">
+        <span style="flex:none;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#B4B4B8;">Case studies</span>
+        <a href="#flipster" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Flipster</a>
+        <a href="#kraken" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Kraken</a>
+        <a href="#boh" aria-current="page" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#0B0B0C;padding:13px 0 11px;border-bottom:2px solid #0B0B0C;">Bank of Hawaii</a>
+        <sc-if value="{{ showDataxu }}" hint-placeholder-val="{{ false }}"><a href="#dataxu" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Dataxu</a></sc-if>
+        <a href="#freelance" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Freelance</a>
+        <a href="#personal" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Personal</a>
+      </div>
+    </div>
   </header>
 
   <!-- CASE HEADER -->
@@ -1188,6 +1222,17 @@ html[data-dx="off"] [data-tile-grid] > div:has(> #home-personal) > a > div > div
           <span style="width:6px;height:6px;border-radius:50%;background:#6CF69B;display:inline-block;"></span><span>Let’s talk</span>
         </a>
       </nav>
+    </div>
+      <div style="border-top:1px solid #ECECE8;">
+      <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:28px;overflow-x:auto;scrollbar-width:none;">
+        <span style="flex:none;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#B4B4B8;">Case studies</span>
+        <a href="#flipster" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Flipster</a>
+        <a href="#kraken" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Kraken</a>
+        <a href="#boh" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Bank of Hawaii</a>
+        <a href="#dataxu" aria-current="page" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#0B0B0C;padding:13px 0 11px;border-bottom:2px solid #0B0B0C;">Dataxu</a>
+        <a href="#freelance" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Freelance</a>
+        <a href="#personal" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Personal</a>
+      </div>
     </div>
   </header>
 
@@ -1456,6 +1501,17 @@ html[data-dx="off"] [data-tile-grid] > div:has(> #home-personal) > a > div > div
           <span style="width:6px;height:6px;border-radius:50%;background:#22C55E;display:inline-block;"></span><span>Let’s talk</span>
         </a>
       </nav>
+    </div>
+      <div style="border-top:1px solid #ECECE8;">
+      <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:28px;overflow-x:auto;scrollbar-width:none;">
+        <span style="flex:none;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#B4B4B8;">Case studies</span>
+        <a href="#flipster" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Flipster</a>
+        <a href="#kraken" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Kraken</a>
+        <a href="#boh" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Bank of Hawaii</a>
+        <sc-if value="{{ showDataxu }}" hint-placeholder-val="{{ false }}"><a href="#dataxu" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Dataxu</a></sc-if>
+        <a href="#freelance" aria-current="page" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#0B0B0C;padding:13px 0 11px;border-bottom:2px solid #0B0B0C;">Freelance</a>
+        <a href="#personal" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Personal</a>
+      </div>
     </div>
   </header>
 
@@ -1736,6 +1792,17 @@ html[data-dx="off"] [data-tile-grid] > div:has(> #home-personal) > a > div > div
           <span style="width:6px;height:6px;border-radius:50%;background:#22C55E;display:inline-block;"></span><span>Let’s talk</span>
         </a>
       </nav>
+    </div>
+      <div style="border-top:1px solid #ECECE8;">
+      <div style="max-width:1180px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:28px;overflow-x:auto;scrollbar-width:none;">
+        <span style="flex:none;font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#B4B4B8;">Case studies</span>
+        <a href="#flipster" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Flipster</a>
+        <a href="#kraken" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Kraken</a>
+        <a href="#boh" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Bank of Hawaii</a>
+        <sc-if value="{{ showDataxu }}" hint-placeholder-val="{{ false }}"><a href="#dataxu" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Dataxu</a></sc-if>
+        <a href="#freelance" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#74747A;padding:13px 0 11px;border-bottom:2px solid transparent;" style-hover="color:#0B0B0C;">Freelance</a>
+        <a href="#personal" aria-current="page" style="flex:none;text-decoration:none;font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:#0B0B0C;padding:13px 0 11px;border-bottom:2px solid #0B0B0C;">Personal</a>
+      </div>
     </div>
   </header>
 

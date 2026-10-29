@@ -976,8 +976,19 @@
       const k = g.base * this._view.s;
       const w = (g.iw * k / g.fw * 100) + '%';
       const h = (g.ih * k / g.fh * 100) + '%';
-      const l = (50 + this._view.x) + '%';
-      const t = (50 + this._view.y) + '%';
+      // Display-time clamp: a pan saved at one frame aspect can exceed the
+      // overflow available at another (fluid grid columns, fixed row height),
+      // which would slide the image off the frame. Clamp for display only so
+      // the saved framing is untouched; free slots keep their range.
+      let dx = this._view.x, dy = this._view.y;
+      if (!this.hasAttribute('free')) {
+        const mx = Math.max(0, (g.iw * k / g.fw - 1) * 50);
+        const my = Math.max(0, (g.ih * k / g.fh - 1) * 50);
+        dx = Math.max(-mx, Math.min(mx, dx));
+        dy = Math.max(-my, Math.min(my, dy));
+      }
+      const l = (50 + dx) + '%';
+      const t = (50 + dy) + '%';
       this._img.style.width = w; this._img.style.height = h;
       this._img.style.left = l; this._img.style.top = t;
       this._img.style.objectFit = '';
