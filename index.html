@@ -1980,12 +1980,16 @@ class Component extends DCLogic {
     // returning visitors keep their own state).
     try {
       var req = new XMLHttpRequest();
-      req.open('GET', 'assets/baked-layout.json', false);
+      // On the public site the published layout always wins, so returning
+      // visitors never see a stale layout cached from an older version.
+      // Inside the editor (or with ?edit=1) local edits are kept.
+      var isEditor = !!window.omelette || /[?&]edit=1/.test(location.search) || !/github\.io$/.test(location.hostname) && location.protocol !== 'file:' && !/kristofor/i.test(location.hostname);
+      req.open('GET', 'assets/baked-layout.json?v=' + Date.now(), false);
       req.send(null);
       if (req.status === 200 || req.status === 0) {
         var baked = JSON.parse(req.responseText);
         for (var k in baked) {
-          if (localStorage.getItem(k) == null) {
+          if (!isEditor || localStorage.getItem(k) == null) {
             try { localStorage.setItem(k, baked[k]); } catch (e) {}
           }
         }
